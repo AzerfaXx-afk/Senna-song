@@ -42,60 +42,70 @@ export default function FloatingSpeakerButton({ isMenuOpen = false }: FloatingSp
             }
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             onAnimationComplete={() => setIsJumping(false)}
-            className="w-6 h-6 flex items-center justify-center group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(229,9,20,0.8)] transition-all duration-300"
+            className="w-6 h-6 flex items-center justify-center group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(229,9,20,0.85)] transition-all duration-300"
           >
             {isPlaying ? (
               <svg
-                className="w-5 h-5 text-[#E50914]"
+                className="w-5 h-5 overflow-visible"
                 viewBox="0 0 24 24"
-                fill="currentColor"
+                fill="none"
               >
-                {/* Speaker Body in Crimson */}
-                <path d="M11 5L6 9H2V15H6L11 19V5Z" />
-                {/* Sound Wave 1 */}
+                {/* Speaker Body: Pure Crisp WHITE */}
                 <path
-                  d="M15.54 8.46C16.48 9.4 17 10.65 17 12C17 13.35 16.48 14.6 15.54 15.54"
-                  stroke="#E50914"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  fill="none"
-                  className="animate-pulse"
+                  d="M11 5L6 9H2V15H6L11 19V5Z"
+                  fill="white"
+                  className="transition-colors duration-300"
                 />
-                {/* Sound Wave 2 */}
+                {/* Sound Wave 1 (Inner Arc): CRIMSON RED with pulse */}
                 <path
-                  d="M19.07 4.93C20.95 6.81 22 9.35 22 12C22 14.65 20.95 17.19 19.07 19.07"
+                  d="M15.5 8.5C16.4 9.4 17 10.6 17 12C17 13.4 16.4 14.6 15.5 15.5"
                   stroke="#E50914"
-                  strokeWidth="2"
+                  strokeWidth="2.2"
                   strokeLinecap="round"
-                  fill="none"
+                  className="animate-pulse origin-center"
+                />
+                {/* Sound Wave 2 (Outer Arc): CRIMSON RED with delayed pulse */}
+                <path
+                  d="M19 5.5C20.8 7.3 22 9.5 22 12C22 14.5 20.8 16.7 19 18.5"
+                  stroke="#E50914"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  className="animate-pulse [animation-delay:200ms] origin-center"
                 />
               </svg>
             ) : (
               <svg
-                className="w-5 h-5 text-[#E50914]"
+                className="w-5 h-5 overflow-visible"
                 viewBox="0 0 24 24"
-                fill="currentColor"
+                fill="none"
               >
-                {/* Muted Speaker Body in Crimson */}
-                <path d="M11 5L6 9H2V15H6L11 19V5Z" />
-                {/* Diagonal Mute Slash in Crimson */}
+                {/* Speaker Body: Pure Crisp WHITE */}
+                <path
+                  d="M11 5L6 9H2V15H6L11 19V5Z"
+                  fill="white"
+                  className="transition-colors duration-300"
+                />
+                {/* Diagonal Mute Slash 1: CRIMSON RED */}
                 <line
                   x1="22"
                   y1="9"
                   x2="16"
                   y2="15"
                   stroke="#E50914"
-                  strokeWidth="2"
+                  strokeWidth="2.2"
                   strokeLinecap="round"
+                  className="transition-all duration-300 group-hover:drop-shadow-[0_0_6px_rgba(229,9,20,0.9)]"
                 />
+                {/* Diagonal Mute Slash 2: CRIMSON RED */}
                 <line
                   x1="16"
                   y1="9"
                   x2="22"
                   y2="15"
                   stroke="#E50914"
-                  strokeWidth="2"
+                  strokeWidth="2.2"
                   strokeLinecap="round"
+                  className="transition-all duration-300 group-hover:drop-shadow-[0_0_6px_rgba(229,9,20,0.9)]"
                 />
               </svg>
             )}

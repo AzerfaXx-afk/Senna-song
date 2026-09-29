@@ -298,36 +298,38 @@ export default function Navbar({ onOpenMenu, isMenuOpen }: NavbarProps) {
         {/* ================================================================= */}
         <div className="flex-1 flex justify-end items-center pointer-events-auto">
           <div className="flex items-center gap-2.5">
-            {/* Interactive Button: ONLY the Signature Crimson Bars */}
+            {/* Interactive Button: ONLY the Signature 3 Bars / X */}
             <button
               onClick={onOpenMenu}
-              className="group relative w-7 h-7 flex items-center justify-center cursor-pointer focus:outline-none select-none transition-transform duration-200 active:scale-90"
+              className="group relative w-8 h-8 flex items-center justify-center cursor-pointer focus:outline-none select-none transition-transform duration-200 active:scale-90 group-hover:scale-105"
               aria-label={isMenuOpen ? (dict.nav?.close || "Close Menu") : (dict.nav?.menu || "Open Menu")}
             >
               {/* Fixed 24x24 Icon Box (Zero layout shift between 3 bars and X close) */}
               <div className="w-6 h-6 flex items-center justify-end relative">
                 {/* Bar 1 (Top / Diagonal 1) */}
                 <span
-                  className={`absolute h-[1.5px] bg-[#E50914] transition-all duration-300 origin-center group-hover:drop-shadow-[0_0_8px_rgba(229,9,20,0.8)] ${
+                  className={`absolute h-[1.5px] transition-all duration-300 ease-[0.16,1,0.3,1] origin-center group-hover:bg-[#E50914] group-hover:drop-shadow-[0_0_8px_rgba(229,9,20,0.95)] ${
                     isMenuOpen
-                      ? "w-5 rotate-45 top-[11.25px] right-0.5"
-                      : "w-4 top-[5px] right-0 group-hover:w-5"
+                      ? "w-5.5 rotate-45 top-[11.25px] right-0.5 bg-white"
+                      : "w-4 top-[5px] right-0 bg-white group-hover:w-5.5"
                   }`}
                 />
 
                 {/* Bar 2 (Middle - disappears smoothly in X mode) */}
                 <span
-                  className={`absolute h-[1.5px] bg-[#E50914] transition-all duration-300 right-0 top-[11.25px] group-hover:drop-shadow-[0_0_8px_rgba(229,9,20,0.8)] ${
-                    isMenuOpen ? "w-0 opacity-0" : "w-6 opacity-100"
+                  className={`absolute h-[1.5px] transition-all duration-300 ease-[0.16,1,0.3,1] right-0 top-[11.25px] group-hover:bg-[#E50914] group-hover:drop-shadow-[0_0_8px_rgba(229,9,20,0.95)] ${
+                    isMenuOpen
+                      ? "w-0 opacity-0 bg-white"
+                      : "w-6 opacity-100 bg-white group-hover:w-6"
                   }`}
                 />
 
                 {/* Bar 3 (Bottom / Diagonal 2) */}
                 <span
-                  className={`absolute h-[1.5px] bg-[#E50914] transition-all duration-300 origin-center group-hover:drop-shadow-[0_0_8px_rgba(229,9,20,0.8)] ${
+                  className={`absolute h-[1.5px] transition-all duration-300 ease-[0.16,1,0.3,1] origin-center group-hover:bg-[#E50914] group-hover:drop-shadow-[0_0_8px_rgba(229,9,20,0.95)] ${
                     isMenuOpen
-                      ? "w-5 -rotate-45 top-[11.25px] right-0.5"
-                      : "w-3 top-[17.5px] right-0 group-hover:w-4"
+                      ? "w-5.5 -rotate-45 top-[11.25px] right-0.5 bg-white"
+                      : "w-3 top-[17.5px] right-0 bg-white group-hover:w-4.5"
                   }`}
                 />
               </div>
