@@ -16,30 +16,30 @@ export default function FloatingSpeakerButton() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 select-none flex items-center gap-2.5">
+    <div className="fixed bottom-5 sm:bottom-6 right-5 sm:right-6 z-50 select-none flex items-center gap-2.5">
       {/* 
-        1. ONLY the Speaker Icon jumps on click & turns red on hover
+        1. Beautiful Speaker Icon: on mobile, refined pill with sound waves; on desktop, minimalist
       */}
       <motion.button
         onClick={handleClick}
         animate={
           isJumping
             ? {
-                y: [0, -12, 2, -4, 0],
-                scale: [1, 1.3, 0.88, 1.06, 1],
+                y: [0, -10, 2, -3, 0],
+                scale: [1, 1.25, 0.9, 1.05, 1],
               }
             : { y: 0, scale: 1 }
         }
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
         onAnimationComplete={() => setIsJumping(false)}
-        whileHover={{ scale: 1.15 }}
-        whileTap={{ scale: 0.88 }}
-        className="group relative bg-transparent border-0 p-1 cursor-pointer select-none outline-none text-white/75 hover:text-[#E50914] transition-colors duration-200 flex items-center justify-center min-w-[40px] min-h-[40px]"
+        whileHover={{ scale: 1.12 }}
+        whileTap={{ scale: 0.9 }}
+        className="group relative w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-[#0a0a0d]/85 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none border border-white/15 sm:border-0 shadow-xl sm:shadow-none cursor-pointer select-none outline-none text-white/80 hover:text-[#E50914] transition-colors duration-200 flex items-center justify-center"
         aria-label={isPlaying ? (dict.sound?.mute || "Mute Audio") : (dict.sound?.play || "Play Audio")}
       >
         {isPlaying ? (
           <svg
-            className="w-5 h-5 sm:w-6 sm:h-6 transition-colors"
+            className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:text-[#E50914] transition-colors"
             viewBox="0 0 24 24"
             fill="currentColor"
           >
@@ -48,7 +48,7 @@ export default function FloatingSpeakerButton() {
             {/* Sound Wave 1 */}
             <path
               d="M15.54 8.46C16.48 9.4 17 10.65 17 12C17 13.35 16.48 14.6 15.54 15.54"
-              stroke="currentColor"
+              stroke="#E50914"
               strokeWidth="2"
               strokeLinecap="round"
               fill="none"
@@ -65,7 +65,7 @@ export default function FloatingSpeakerButton() {
           </svg>
         ) : (
           <svg
-            className="w-5 h-5 sm:w-6 sm:h-6 transition-colors"
+            className="w-5 h-5 sm:w-6 sm:h-6 text-white/60 group-hover:text-[#E50914] transition-colors"
             viewBox="0 0 24 24"
             fill="currentColor"
           >
@@ -77,7 +77,7 @@ export default function FloatingSpeakerButton() {
               y1="9"
               x2="16"
               y2="15"
-              stroke="currentColor"
+              stroke="#E50914"
               strokeWidth="2"
               strokeLinecap="round"
             />
@@ -86,7 +86,7 @@ export default function FloatingSpeakerButton() {
               y1="9"
               x2="22"
               y2="15"
-              stroke="currentColor"
+              stroke="#E50914"
               strokeWidth="2"
               strokeLinecap="round"
             />
@@ -95,9 +95,9 @@ export default function FloatingSpeakerButton() {
       </motion.button>
 
       {/* 
-        2. Vertical SOUND label on the RIGHT (like CONTENTS & MENU)
+        2. Vertical SOUND label on desktop ONLY (hidden on mobile phone screens)
       */}
-      <span className="font-condensed text-[10px] tracking-[0.4em] uppercase text-white/35 [writing-mode:vertical-rl] select-none font-semibold">
+      <span className="hidden sm:inline-block font-condensed text-[10px] tracking-[0.4em] uppercase text-white/35 [writing-mode:vertical-rl] select-none font-semibold">
         {dict.sound?.soundLabel || "SOUND"}
       </span>
     </div>

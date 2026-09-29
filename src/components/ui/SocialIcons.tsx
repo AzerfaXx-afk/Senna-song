@@ -76,25 +76,25 @@ export default function SocialIcons({ className = "", size = "sm" }: SocialIcons
               rel="noopener noreferrer"
               data-social={social.key}
               aria-label={social.label}
-              className={`social-btn group relative overflow-hidden flex items-center justify-center rounded-full bg-white text-[#18181b] shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-110 cursor-pointer select-none ${sizeClasses}`}
+              className={`social-btn group relative overflow-hidden flex items-center justify-center rounded-full bg-white text-[#18181b] shadow-sm transition-all duration-300 sm:hover:shadow-xl sm:hover:scale-110 active:scale-90 cursor-pointer select-none outline-none ${sizeClasses}`}
+              onTouchEnd={(e) => (e.currentTarget as HTMLElement).blur()}
+              onClick={(e) => (e.currentTarget as HTMLElement).blur()}
             >
               {/* Animated Rising Filled Background in Brand Colors */}
               <div className="filled-bg absolute bottom-0 left-0 w-full h-0 transition-all duration-300 ease-in-out pointer-events-none" />
 
               {/* Official Platform Vector Icon (Zero Text beside icon) */}
-              <span className="relative z-10 text-[#1f1f23] group-hover:text-white transition-colors duration-300 flex items-center justify-center">
+              <span className="relative z-10 text-[#1f1f23] sm:group-hover:text-white transition-colors duration-300 flex items-center justify-center">
                 {renderSocialSvg(social.key, iconSizes)}
               </span>
             </a>
 
             {/* 
-              Clean, Monochrome Floating Tooltip (No Colored Aura / Halo behind text)
-              - Pure black/neutral background #0c0c0e
-              - Crisp white text
-              - Zero colored glow or halo
+              Clean, Monochrome Floating Tooltip (Visible ONLY on Desktop with True Mouse Hover)
+              - Completely hidden on touch/mobile to prevent sticky hover bugs
             */}
             <div
-              className="social-tooltip pointer-events-none absolute left-1/2 -translate-x-1/2 px-2 py-0.5 rounded bg-[#0c0c0e] text-[10px] font-condensed tracking-wider font-semibold text-white whitespace-nowrap opacity-0 invisible transition-all duration-200 shadow-lg shadow-black/90 z-50"
+              className="social-tooltip pointer-events-none absolute left-1/2 -translate-x-1/2 px-2 py-0.5 rounded bg-[#0c0c0e] text-[10px] font-condensed tracking-wider font-semibold text-white whitespace-nowrap opacity-0 invisible transition-all duration-200 shadow-lg shadow-black/90 z-50 hidden sm:block"
             >
               {social.label}
               {/* Neutral black arrow indicator */}
@@ -104,23 +104,30 @@ export default function SocialIcons({ className = "", size = "sm" }: SocialIcons
         ))}
       </ul>
 
-      {/* Scoped CSS: Filled brand color inside the button ONLY, clean neutral tooltip */}
+      {/* Scoped CSS: STRICTLY scoped to @media (hover: hover) and (pointer: fine) */}
       <style jsx>{`
         .social-icon-item .social-tooltip {
-          top: -24px;
-          opacity: 0;
-          visibility: hidden;
-          transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+          display: none;
         }
 
-        .social-icon-item:hover .social-tooltip {
-          opacity: 1;
-          visibility: visible;
-          top: -38px;
-        }
+        @media (hover: hover) and (pointer: fine) {
+          .social-icon-item .social-tooltip {
+            display: block;
+            top: -24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+          }
 
-        .social-btn:hover .filled-bg {
-          height: 100%;
+          .social-icon-item:hover .social-tooltip {
+            opacity: 1;
+            visibility: visible;
+            top: -38px;
+          }
+
+          .social-btn:hover .filled-bg {
+            height: 100%;
+          }
         }
 
         /* 1. INSTAGRAM - Button fills with Instagram Gradient */
@@ -136,7 +143,7 @@ export default function SocialIcons({ className = "", size = "sm" }: SocialIcons
           );
         }
 
-        /* 2. TIKTOK - Button fills with pure black, zero colored aura behind tooltip */
+        /* 2. TIKTOK - Button fills with pure black */
         .social-btn[data-social="tiktok"] .filled-bg {
           background-color: #010101;
         }

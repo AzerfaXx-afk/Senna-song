@@ -205,57 +205,49 @@ export default function CurtainMenu({ isOpen, onClose }: CurtainMenuProps) {
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="fixed inset-0 z-40 bg-[#050505] flex flex-col justify-center overflow-hidden select-none transform-gpu will-change-transform pt-24 sm:pt-28 pb-20 sm:pb-28 px-6 sm:px-10 md:px-14 lg:px-20 xl:px-24 h-screen w-screen"
+          className="fixed inset-0 z-40 bg-[#050505] flex flex-col justify-between overflow-hidden select-none transform-gpu will-change-transform pt-14 sm:pt-20 md:pt-24 pb-12 sm:pb-16 md:pb-20 px-5 sm:px-10 md:px-14 lg:px-20 xl:px-24 h-[100dvh] w-screen"
           role="dialog"
           aria-modal="true"
           aria-label="Navigation Menu"
         >
           {/* ========================================================================= */}
-          {/* VIBRANT 4K BACKGROUND ARTISTIC VISUAL (CRISP, NON-GRAINY, STYLISH REVEAL) */}
+          {/* SUBTLE 4K HOVER PREVIEW (DESKTOP MOUSE HOVER ONLY - ZERO IMAGE AT REST/HOME) */}
           {/* ========================================================================= */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-            {/* Resting state: Elegant subtle 4K Senna portrait */}
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-opacity duration-700 ease-out"
-              style={{
-                backgroundImage: `url(/images/hero-artistic-cover.jpg)`,
-                opacity: hoveredIndex === null ? 0.22 : 0,
-                filter: "contrast(115%) brightness(0.85)",
-              }}
-            />
-
-            {/* Hover state: Vibrant 4K Section visual reveals seamlessly across the background */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 hidden md:block">
+            {/* Hover state ONLY: Vibrant 4K Section visual reveals seamlessly across the background */}
             {menuItems.map((item, index) => (
               <div
                 key={item.id}
-                className="absolute inset-0 bg-cover bg-center transition-opacity duration-600 ease-out"
+                className="absolute inset-0 bg-cover bg-center transition-opacity duration-500 ease-out"
                 style={{
                   backgroundImage: `url(${item.preview})`,
-                  opacity: hoveredIndex === index ? 0.48 : 0,
+                  opacity: hoveredIndex === index ? 0.42 : 0,
                   filter: "contrast(115%) brightness(0.9)",
                 }}
               />
             ))}
 
             {/* Smooth Vignettes: High legibility for left text + maximum luminosity for right artwork */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/75 to-[#050505]/30" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/85 to-[#050505]/40" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]" />
-            <div className="absolute -top-32 left-1/4 w-[700px] h-[700px] bg-[#E50914]/10 rounded-full blur-[220px] pointer-events-none" />
           </div>
 
+          {/* Atmospheric Ambient Glow behind typography */}
+          <div className="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-[#E50914]/10 rounded-full blur-[220px] pointer-events-none" />
+
           {/* ========================================================================= */}
-          {/* MAIN MENU LINKS: Full Length, Rock-Solid Stability, Pure Typography       */}
+          {/* MAIN MENU LINKS: Perfectly fit 100dvh on mobile with ZERO SCROLL NEEDED   */}
           {/* ========================================================================= */}
           <div
             data-menu-scroll="true"
-            className="relative z-30 max-w-7xl mx-auto w-full my-auto overflow-y-auto max-h-[82vh] pr-1"
+            className="relative z-30 max-w-7xl mx-auto w-full my-auto flex flex-col justify-center h-full max-h-[calc(100dvh-100px)] sm:max-h-none"
           >
             <motion.ul
               variants={listContainerVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="w-full divide-y divide-white/[0.04]"
+              className="w-full flex flex-col justify-evenly h-full max-h-[85vh] sm:max-h-none divide-y divide-white/[0.04]"
             >
               {menuItems.map((item, index) => {
                 const isHovered = hoveredIndex === index;
@@ -267,40 +259,40 @@ export default function CurtainMenu({ isOpen, onClose }: CurtainMenuProps) {
                     variants={itemVariants}
                     onMouseEnter={() => setHoveredIndex(index)}
                     onMouseLeave={() => setHoveredIndex(null)}
-                    className={`group relative transition-opacity duration-300 ${
+                    className={`group relative transition-opacity duration-300 flex-1 flex items-center ${
                       isOtherHovered ? "opacity-25" : "opacity-100"
                     }`}
                   >
                     <a
                       href={`#${item.id}`}
                       onClick={(e) => handleSmoothScroll(e, item.id)}
-                      className="flex items-center justify-between py-2 sm:py-3 lg:py-3.5 xl:py-4 cursor-pointer select-none"
+                      className="w-full flex items-center justify-between py-1 sm:py-2 md:py-3 lg:py-3.5 cursor-pointer select-none"
                     >
                       {/* Left: Number + Monumental Title with Artistic Underline */}
-                      <div className="flex items-baseline gap-4 sm:gap-8">
-                        <span className="font-condensed text-xs sm:text-sm md:text-base text-[#E50914] font-semibold tracking-[0.3em] font-mono shrink-0">
+                      <div className="flex items-baseline gap-3 sm:gap-6 md:gap-8">
+                        <span className="font-condensed text-[11px] sm:text-xs md:text-sm text-[#E50914] font-semibold tracking-[0.25em] font-mono shrink-0">
                           {item.number}
                         </span>
 
                         <div className="relative inline-flex flex-col">
                           <span
-                            className={`font-bebas text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tight leading-[0.92] transition-colors duration-300 drop-shadow-md ${
+                            className={`font-bebas text-2xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl tracking-tight leading-none transition-colors duration-300 drop-shadow-md ${
                               isHovered ? "text-white" : "text-white/85"
                             }`}
                           >
                             {lang === "ja" ? item.title : item.en}
                           </span>
                           {/* Artistic animated underline on hover (ZERO layout shift) */}
-                          <span className="absolute -bottom-1 left-0 w-0 group-hover:w-full h-[2px] bg-[#E50914] transition-all duration-300 ease-[0.22,1,0.36,1] pointer-events-none" />
+                          <span className="absolute -bottom-1 left-0 w-0 group-hover:w-full h-[2px] bg-[#E50914] transition-all duration-300 ease-[0.22,1,0.36,1] pointer-events-none hidden sm:block" />
                         </div>
                       </div>
 
                       {/* Right: Subtitle + Tag + Subtle Arrow */}
-                      <div className="flex items-baseline gap-3 sm:gap-6 text-right pl-4">
-                        <span className="font-serif-jp text-xs sm:text-base md:text-lg text-white/40 group-hover:text-white/90 transition-colors duration-300 font-normal">
+                      <div className="flex items-baseline gap-2 sm:gap-5 text-right pl-3">
+                        <span className="font-serif-jp text-xs sm:text-sm md:text-base text-white/40 group-hover:text-white/90 transition-colors duration-300 font-normal">
                           {lang === "ja" ? item.sub : item.title}
                         </span>
-                        <span className="hidden sm:inline font-condensed text-xs sm:text-sm text-white/25 tracking-[0.25em] uppercase group-hover:text-[#E50914] transition-colors duration-300 font-mono">
+                        <span className="hidden sm:inline font-condensed text-[11px] sm:text-xs text-white/25 tracking-[0.2em] uppercase group-hover:text-[#E50914] transition-colors duration-300 font-mono">
                           ({item.sub})
                         </span>
                         <span className="font-mono text-xs sm:text-sm text-white/20 group-hover:text-[#E50914] group-hover:translate-x-1 transition-all duration-300">

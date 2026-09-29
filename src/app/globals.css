@@ -74,3 +74,15 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #E50914;
 }
+
+/* Mobile Touch Optimization & Elimination of Sticky Tap Highlight */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  /* Prevent sticky hover state on mobile touch devices */
+  button:hover, a:hover {
+    box-shadow: none !important;
+  }
+}
