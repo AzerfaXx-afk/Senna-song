@@ -115,8 +115,8 @@ export default function HeroSection() {
                 <span className="font-bebas text-2xl sm:text-3xl lg:text-4xl text-white tracking-normal group-hover:text-[#E50914] transition-colors duration-300 drop-shadow-md">
                   <ScrambleText
                     text={sec.en}
-                    duration={1900 + index * 60}
-                    delay={180 + index * 60}
+                    duration={1500}
+                    delay={100 + index * 40}
                   />
                 </span>
                 {/* Artistic animated underline (expands smoothly from right on hover) */}
@@ -127,8 +127,8 @@ export default function HeroSection() {
               <span className="font-serif-jp text-[11px] sm:text-xs text-white/40 group-hover:text-white/80 transition-colors duration-300 font-normal">
                 <ScrambleText
                   text={lang === "ja" ? sec.title : `(${sec.sub})`}
-                  duration={1900 + index * 60}
-                  delay={220 + index * 60}
+                  duration={1500}
+                  delay={120 + index * 40}
                 />
               </span>
             </a>
@@ -140,8 +140,8 @@ export default function HeroSection() {
           <span className="font-condensed text-[10px] tracking-[0.4em] uppercase text-white/30 [writing-mode:vertical-rl] font-semibold">
             <ScrambleText
               text={dict.hero.contents}
-              duration={2000}
-              delay={200}
+              duration={1500}
+              delay={150}
             />
           </span>
         </div>
@@ -157,30 +157,35 @@ export default function HeroSection() {
         className="relative z-20 max-w-xl pb-3 sm:pb-8 space-y-1.5"
       >
         <div className="font-condensed text-[10px] tracking-[0.4em] text-[#E50914] uppercase font-semibold">
-          <ScrambleText text={dict.hero.badge} duration={1900} delay={100} />
+          <ScrambleText text={dict.hero.badge} duration={1500} delay={80} />
         </div>
 
         <div className="flex items-baseline gap-3 sm:gap-5">
           <h1 className="font-bebas text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] tracking-tight text-white leading-[0.88] drop-shadow-2xl">
             <ScrambleText
               text="SENNA"
-              duration={2000}
-              delay={150}
+              duration={1500}
+              delay={120}
               glyphs="0123456789センナ千奈ECLIPSE808TOKYO#$!%*~+"
             />
           </h1>
           <span className="font-serif-jp text-lg sm:text-2xl md:text-3xl text-white/40 font-normal">
             <ScrambleText
               text="千奈"
-              duration={2000}
-              delay={200}
+              duration={1500}
+              delay={150}
               glyphs="千奈センナ東京0123456789"
             />
           </span>
         </div>
 
         <p className="font-sans-jp text-xs sm:text-[13px] text-white/60 font-light leading-relaxed max-w-sm sm:max-w-md pt-1 tracking-wide">
-          {dict.hero.tagline}
+          <ScrambleText
+            text={dict.hero.tagline}
+            duration={1500}
+            delay={180}
+            className="inline"
+          />
         </p>
       </motion.div>
     </section>

@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { WORLD_LANGUAGES, LanguageOption } from "@/data/languages";
 import { siteData } from "@/data/siteData";
-import ScrambleText from "@/components/common/ScrambleText";
 
 interface NavbarProps {
   onOpenMenu: () => void;
@@ -335,14 +334,10 @@ export default function Navbar({ onOpenMenu, isMenuOpen }: NavbarProps) {
               </div>
             </button>
 
-            {/* Vertical MENU label (Pure SECTIONS styling, non-interactive, NO hover animation, fixed container) */}
+            {/* Vertical MENU label (Pure SECTIONS styling, static, non-interactive) */}
             <div className="w-4 h-16 flex items-center justify-center select-none pointer-events-none">
               <span className="font-condensed text-[10px] tracking-[0.4em] uppercase text-white/30 [writing-mode:vertical-rl] font-semibold select-none pointer-events-none">
-                <ScrambleText
-                  text="MENU"
-                  duration={2000}
-                  delay={150}
-                />
+                MENU
               </span>
             </div>
           </div>

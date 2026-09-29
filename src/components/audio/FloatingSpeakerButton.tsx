@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useAudio } from "@/context/AudioContext";
 import { useLanguage } from "@/context/LanguageContext";
-import ScrambleText from "@/components/common/ScrambleText";
 
 interface FloatingSpeakerButtonProps {
   isMenuOpen?: boolean;
@@ -115,14 +114,10 @@ export default function FloatingSpeakerButton({ isMenuOpen = false }: FloatingSp
           </motion.div>
         </button>
 
-        {/* Vertical SOUND / SON label (Pure SECTIONS styling, non-interactive, NO hover animation, fixed container) */}
+        {/* Vertical SOUND / SON label (Pure SECTIONS styling, static, non-interactive) */}
         <div className="flex w-4 h-16 items-center justify-center select-none pointer-events-none">
           <span className="font-condensed text-[10px] tracking-[0.4em] uppercase text-white/30 [writing-mode:vertical-rl] font-semibold select-none pointer-events-none">
-            <ScrambleText
-              text={dict.sound?.soundLabel || "SON"}
-              duration={2000}
-              delay={250}
-            />
+            {dict.sound?.soundLabel || "SON"}
           </span>
         </div>
       </div>

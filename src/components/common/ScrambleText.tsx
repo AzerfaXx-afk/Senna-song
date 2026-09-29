@@ -19,7 +19,7 @@ interface ScrambleTextProps {
 
 export default function ScrambleText({
   text,
-  duration = 2000,
+  duration = 1500,
   delay = 0,
   scrambleSpeed = 35,
   glyphs = DEFAULT_GLYPHS,
@@ -107,7 +107,10 @@ export default function ScrambleText({
   }, [text, autoStart, startScramble]);
 
   return (
-    <Component className={`inline-block select-none ${className}`} aria-label={text}>
+    <Component
+      className={`select-none ${className.includes("inline") || className.includes("block") ? "" : "inline-block"} ${className}`.trim()}
+      aria-label={text}
+    >
       {displayText}
     </Component>
   );
