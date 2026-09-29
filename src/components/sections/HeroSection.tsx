@@ -67,13 +67,13 @@ export default function HeroSection() {
         className="absolute inset-0 z-0 pointer-events-none"
       >
         <Image
-          src="/images/hero-artistic-cover.jpg"
-          alt="Senna official 4K studio portrait"
+          src="/images/senna-home.jpeg"
+          alt="Senna official portrait"
           fill
           priority
           unoptimized
           sizes="100vw"
-          className="object-cover object-[center_25%] sm:object-[center_20%] filter contrast-[1.02] brightness-[1.0]"
+          className="object-cover object-[center_26%] sm:object-[center_22%] filter contrast-[1.03] brightness-[0.99]"
         />
 
         {/* Soft bottom blend into next section */}
