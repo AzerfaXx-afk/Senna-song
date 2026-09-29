@@ -308,16 +308,16 @@ export default function Navbar({ onOpenMenu, isMenuOpen }: NavbarProps) {
               <div className="w-6 h-6 flex items-center justify-end relative">
                 {/* Bar 1 (Top / Diagonal 1) */}
                 <span
-                  className={`absolute h-[1.5px] transition-all duration-300 ease-[0.16,1,0.3,1] origin-center group-hover:bg-[#E50914] group-hover:drop-shadow-[0_0_8px_rgba(229,9,20,0.95)] ${
+                  className={`absolute h-[2px] rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] origin-center group-hover:bg-[#E50914] group-hover:drop-shadow-[0_0_6px_rgba(229,9,20,0.8)] ${
                     isMenuOpen
-                      ? "w-5.5 rotate-45 top-[11.25px] right-0.5 bg-white"
-                      : "w-4 top-[5px] right-0 bg-white group-hover:w-5.5"
+                      ? "w-5.5 rotate-45 top-[11px] right-0.5 bg-white"
+                      : "w-4 top-[4px] right-0 bg-white group-hover:w-5"
                   }`}
                 />
 
                 {/* Bar 2 (Middle - disappears smoothly in X mode) */}
                 <span
-                  className={`absolute h-[1.5px] transition-all duration-300 ease-[0.16,1,0.3,1] right-0 top-[11.25px] group-hover:bg-[#E50914] group-hover:drop-shadow-[0_0_8px_rgba(229,9,20,0.95)] ${
+                  className={`absolute h-[2px] rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] right-0 top-[11px] group-hover:bg-[#E50914] group-hover:drop-shadow-[0_0_6px_rgba(229,9,20,0.8)] ${
                     isMenuOpen
                       ? "w-0 opacity-0 bg-white"
                       : "w-6 opacity-100 bg-white group-hover:w-6"
@@ -326,10 +326,10 @@ export default function Navbar({ onOpenMenu, isMenuOpen }: NavbarProps) {
 
                 {/* Bar 3 (Bottom / Diagonal 2) */}
                 <span
-                  className={`absolute h-[1.5px] transition-all duration-300 ease-[0.16,1,0.3,1] origin-center group-hover:bg-[#E50914] group-hover:drop-shadow-[0_0_8px_rgba(229,9,20,0.95)] ${
+                  className={`absolute h-[2px] rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] origin-center group-hover:bg-[#E50914] group-hover:drop-shadow-[0_0_6px_rgba(229,9,20,0.8)] ${
                     isMenuOpen
-                      ? "w-5.5 -rotate-45 top-[11.25px] right-0.5 bg-white"
-                      : "w-3 top-[17.5px] right-0 bg-white group-hover:w-4.5"
+                      ? "w-5.5 -rotate-45 top-[11px] right-0.5 bg-white"
+                      : "w-2.5 top-[18px] right-0 bg-white group-hover:w-4"
                   }`}
                 />
               </div>

@@ -35,14 +35,17 @@ export default function FloatingSpeakerButton({ isMenuOpen = false }: FloatingSp
             animate={
               isJumping
                 ? {
-                    y: [0, -4, 1, 0],
-                    scale: [1, 1.1, 0.98, 1],
+                    y: [0, -8, 2, -1, 0],
+                    scale: [1, 1.15, 0.95, 1.02, 1],
                   }
                 : { y: 0, scale: 1 }
             }
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              duration: 0.85,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             onAnimationComplete={() => setIsJumping(false)}
-            className="w-6 h-6 flex items-center justify-center group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(229,9,20,0.85)] transition-all duration-300"
+            className="w-6 h-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300"
           >
             {isPlaying ? (
               <svg
@@ -85,7 +88,7 @@ export default function FloatingSpeakerButton({ isMenuOpen = false }: FloatingSp
                   fill="white"
                   className="transition-colors duration-300"
                 />
-                {/* Diagonal Mute Slash 1: CRIMSON RED */}
+                {/* Diagonal Mute Slash 1: CRIMSON RED (Pure clean lines, zero red aura) */}
                 <line
                   x1="22"
                   y1="9"
@@ -94,9 +97,9 @@ export default function FloatingSpeakerButton({ isMenuOpen = false }: FloatingSp
                   stroke="#E50914"
                   strokeWidth="2.2"
                   strokeLinecap="round"
-                  className="transition-all duration-300 group-hover:drop-shadow-[0_0_6px_rgba(229,9,20,0.9)]"
+                  className="transition-transform duration-300"
                 />
-                {/* Diagonal Mute Slash 2: CRIMSON RED */}
+                {/* Diagonal Mute Slash 2: CRIMSON RED (Pure clean lines, zero red aura) */}
                 <line
                   x1="16"
                   y1="9"
@@ -105,7 +108,7 @@ export default function FloatingSpeakerButton({ isMenuOpen = false }: FloatingSp
                   stroke="#E50914"
                   strokeWidth="2.2"
                   strokeLinecap="round"
-                  className="transition-all duration-300 group-hover:drop-shadow-[0_0_6px_rgba(229,9,20,0.9)]"
+                  className="transition-transform duration-300"
                 />
               </svg>
             )}
