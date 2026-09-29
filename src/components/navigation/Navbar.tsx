@@ -132,7 +132,12 @@ export default function Navbar({ onOpenMenu, isMenuOpen }: NavbarProps) {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full px-6 sm:px-10 lg:px-14 py-6 sm:py-8 bg-transparent pointer-events-none select-none">
+    <motion.header
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed top-0 left-0 right-0 z-50 w-full px-6 sm:px-10 lg:px-14 py-6 sm:py-8 bg-transparent pointer-events-none select-none"
+    >
       <div className="w-full flex items-center justify-between">
         {/* ================================================================= */}
         {/* FAR LEFT: Language Selector (Pure Floating Typography, No Box)    */}
@@ -149,12 +154,23 @@ export default function Navbar({ onOpenMenu, isMenuOpen }: NavbarProps) {
                 win.lenis?.start();
               }
             }}
-            className="group relative inline-flex items-center cursor-pointer focus:outline-none select-none py-1 text-white hover:text-[#E50914] transition-colors duration-200"
+            className="group relative inline-flex items-center cursor-pointer focus:outline-none select-none py-1 h-8"
             aria-label="Choose Language"
             aria-expanded={isDropdownOpen}
           >
-            <span className="font-condensed text-xs uppercase tracking-[0.25em] font-bold text-white/90 group-hover:text-[#E50914] transition-colors">
+            {/* Invisible spacer to reserve width for the full language name without layout jump */}
+            <span className="invisible pointer-events-none font-serif-jp text-xs tracking-wider whitespace-nowrap select-none pr-1">
+              {currentLanguage.nativeName}
+            </span>
+
+            {/* Resting state: uppercase code e.g. "FR" */}
+            <span className="absolute left-0 font-condensed text-xs uppercase tracking-[0.25em] font-bold text-white/90 group-hover:opacity-0 transition-opacity duration-300 ease-out whitespace-nowrap">
               {currentLanguage.code.toUpperCase()}
+            </span>
+
+            {/* Hover state: full native language name e.g. "Français", "English", "日本語" in signature crimson */}
+            <span className="absolute left-0 font-serif-jp text-xs tracking-wider font-semibold text-[#E50914] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out whitespace-nowrap">
+              {currentLanguage.nativeName}
             </span>
           </button>
 
@@ -282,7 +298,7 @@ export default function Navbar({ onOpenMenu, isMenuOpen }: NavbarProps) {
         <div className="flex-1 flex justify-end items-center pointer-events-auto">
           <button
             onClick={onOpenMenu}
-            className="group relative flex items-center gap-2.5 p-1.5 cursor-pointer focus:outline-none select-none text-white hover:text-[#E50914] transition-colors duration-200"
+            className="group relative flex items-center gap-2.5 p-0 cursor-pointer focus:outline-none select-none text-white hover:text-[#E50914] transition-colors duration-200"
             aria-label={isMenuOpen ? (dict.nav?.close || "Close Navigation Menu") : (dict.nav?.menu || "Open Navigation Menu")}
           >
             <div className="flex flex-col justify-center items-end gap-[5.5px]">
@@ -319,6 +335,6 @@ export default function Navbar({ onOpenMenu, isMenuOpen }: NavbarProps) {
           </button>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }
