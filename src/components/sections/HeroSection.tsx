@@ -1,0 +1,149 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
+
+export default function HeroSection() {
+  const { lang, dict } = useLanguage();
+
+  // The 4 Core Main Page Sections specified by the artist
+  const primarySections = [
+    {
+      index: "01",
+      id: "news",
+      en: "NEWS",
+      title: dict.menu.news,
+      sub: dict.menu.newsSub,
+    },
+    {
+      index: "02",
+      id: "profile",
+      en: "PROFILE",
+      title: dict.menu.profile,
+      sub: dict.menu.profileSub,
+    },
+    {
+      index: "03",
+      id: "discography",
+      en: "DISCOGRAPHY",
+      title: dict.menu.discography,
+      sub: dict.menu.discographySub,
+    },
+    {
+      index: "04",
+      id: "video",
+      en: "VIDEO",
+      title: dict.menu.video,
+      sub: dict.menu.videoSub,
+    },
+  ];
+
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    // Use Lenis if available on window for ultra-smooth inertia scroll
+    const win = window as unknown as { lenis?: { scrollTo: (target: HTMLElement, options?: { offset?: number; duration?: number }) => void } };
+    if (win.lenis) {
+      win.lenis.scrollTo(element, { offset: -20, duration: 1.2 });
+    } else {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <section className="relative min-h-[92vh] sm:min-h-screen w-full bg-[#050505] text-white overflow-hidden flex flex-col justify-end pt-24 pb-8 sm:pb-12 px-6 sm:px-10 md:px-14 lg:px-16 select-none">
+      {/* ========================================================================= */}
+      {/* TRUE 4K ULTRA-HIGH DEFINITION ARTISTIC BACKGROUND (UNOPTIMIZED DIRECT 4K) */}
+      {/* ========================================================================= */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Image
+          src="/images/hero-artistic-cover.jpg"
+          alt="Senna official 4K studio portrait"
+          fill
+          priority
+          unoptimized
+          sizes="100vw"
+          className="object-cover object-[center_16%] sm:object-[center_10%] filter contrast-[1.03] brightness-[0.99]"
+        />
+
+        {/* Soft bottom blend into next section */}
+        <div className="absolute bottom-0 inset-x-0 h-48 sm:h-72 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent" />
+
+        {/* Subtle side vignettes to ensure flawless text legibility */}
+        <div className="absolute inset-y-0 left-0 w-20 sm:w-48 bg-gradient-to-r from-[#050505]/60 to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-24 sm:w-64 bg-gradient-to-l from-[#050505]/75 to-transparent" />
+      </div>
+
+      {/* ========================================================================= */}
+      {/* VERTICALLY CENTERED RIGHT SIDE NAVIGATION WITH VERTICAL "CONTENTS" LABEL */}
+      {/* ========================================================================= */}
+      <div className="lg:absolute lg:right-10 xl:right-16 lg:top-1/2 lg:-translate-y-1/2 z-20 flex items-center gap-3 sm:gap-5 my-6 lg:my-0">
+        {/* Main 4 Core Sections: NEWS, PROFILE, DISCOGRAPHY, VIDEO */}
+        <nav
+          className="flex flex-col lg:items-end space-y-1.5 sm:space-y-2"
+          aria-label="Main Page Sections"
+        >
+          {primarySections.map((sec) => (
+            <a
+              key={sec.id}
+              href={`#${sec.id}`}
+              onClick={(e) => handleSmoothScroll(e, sec.id)}
+              className="group relative flex items-baseline gap-3 sm:gap-3.5 lg:justify-end text-left lg:text-right py-0.5 cursor-pointer transition-all duration-300"
+            >
+              {/* Section Index */}
+              <span className="font-condensed text-[11px] sm:text-xs tracking-[0.2em] text-white/30 group-hover:text-[#E50914] transition-colors duration-300 font-mono">
+                {sec.index}
+              </span>
+
+              {/* Sleeker Pro Editorial Title with Artistic Underline */}
+              <div className="relative inline-flex flex-col">
+                <span className="font-bebas text-2xl sm:text-3xl lg:text-4xl text-white tracking-normal group-hover:text-[#E50914] transition-colors duration-300 drop-shadow-md">
+                  {sec.en}
+                </span>
+                {/* Artistic animated underline (expands smoothly from right on hover) */}
+                <span className="absolute -bottom-0.5 right-0 w-0 group-hover:w-full h-[1.5px] bg-[#E50914] transition-all duration-300 ease-[0.22,1,0.36,1] pointer-events-none" />
+              </div>
+
+              {/* Translated Subtitle / Tagline */}
+              <span className="font-serif-jp text-[11px] sm:text-xs text-white/40 group-hover:text-white/80 transition-colors duration-300 font-normal">
+                {lang === "ja" ? sec.title : `(${sec.sub})`}
+              </span>
+            </a>
+          ))}
+        </nav>
+
+        {/* Vertical "CONTENTS" Label (Matching exact user reference) */}
+        <div className="hidden lg:flex items-center justify-center select-none pl-1">
+          <span className="font-condensed text-[10px] tracking-[0.4em] uppercase text-white/30 [writing-mode:vertical-rl] font-semibold">
+            {dict.hero.contents}
+          </span>
+        </div>
+      </div>
+
+      {/* ========================================================================= */}
+      {/* BOTTOM LEFT: Monumental SENNA Typography (Zero Borders, Balanced Scale)  */}
+      {/* ========================================================================= */}
+      <div className="relative z-20 max-w-xl pb-3 sm:pb-8 space-y-1.5">
+        <div className="font-condensed text-[10px] tracking-[0.4em] text-[#E50914] uppercase font-semibold">
+          {dict.hero.badge}
+        </div>
+
+        <div className="flex items-baseline gap-3 sm:gap-5">
+          <h1 className="font-bebas text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] tracking-tight text-white leading-[0.88] drop-shadow-2xl">
+            SENNA
+          </h1>
+          <span className="font-serif-jp text-lg sm:text-2xl md:text-3xl text-white/40 font-normal">
+            千奈
+          </span>
+        </div>
+
+        <p className="font-sans-jp text-xs sm:text-[13px] text-white/60 font-light leading-relaxed max-w-sm sm:max-w-md pt-1 tracking-wide">
+          {dict.hero.tagline}
+        </p>
+      </div>
+    </section>
+  );
+}

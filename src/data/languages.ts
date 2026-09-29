@@ -1,0 +1,50 @@
+export interface LanguageOption {
+  code: string;
+  name: string;
+  nativeName: string;
+  region?: string;
+}
+
+export const WORLD_LANGUAGES: LanguageOption[] = [
+  { code: "en", name: "English", nativeName: "English", region: "Global" },
+  { code: "ja", name: "Japanese", nativeName: "日本語", region: "Japan" },
+  { code: "fr", name: "French", nativeName: "Français", region: "France" },
+  { code: "es", name: "Spanish", nativeName: "Español", region: "Spain / Latin America" },
+  { code: "de", name: "German", nativeName: "Deutsch", region: "Germany" },
+  { code: "it", name: "Italian", nativeName: "Italiano", region: "Italy" },
+  { code: "ko", name: "Korean", nativeName: "한국어", region: "South Korea" },
+  { code: "zh-CN", name: "Chinese (Simplified)", nativeName: "简体中文", region: "China" },
+  { code: "zh-TW", name: "Chinese (Traditional)", nativeName: "繁體中文", region: "Taiwan / HK" },
+  { code: "pt", name: "Portuguese", nativeName: "Português", region: "Portugal / Brazil" },
+  { code: "ru", name: "Russian", nativeName: "Русский", region: "Russia" },
+  { code: "ar", name: "Arabic", nativeName: "العربية", region: "Middle East" },
+  { code: "nl", name: "Dutch", nativeName: "Nederlands", region: "Netherlands" },
+  { code: "sv", name: "Swedish", nativeName: "Svenska", region: "Sweden" },
+  { code: "pl", name: "Polish", nativeName: "Polski", region: "Poland" },
+  { code: "tr", name: "Turkish", nativeName: "Türkçe", region: "Turkey" },
+  { code: "th", name: "Thai", nativeName: "ไทย", region: "Thailand" },
+  { code: "vi", name: "Vietnamese", nativeName: "Tiếng Việt", region: "Vietnam" },
+  { code: "id", name: "Indonesian", nativeName: "Bahasa Indonesia", region: "Indonesia" },
+  { code: "hi", name: "Hindi", nativeName: "हिन्दी", region: "India" },
+  { code: "el", name: "Greek", nativeName: "Ελληνικά", region: "Greece" },
+  { code: "da", name: "Danish", nativeName: "Dansk", region: "Denmark" },
+  { code: "fi", name: "Finnish", nativeName: "Suomi", region: "Finland" },
+  { code: "no", name: "Norwegian", nativeName: "Norsk", region: "Norway" },
+  { code: "cs", name: "Czech", nativeName: "Čeština", region: "Czechia" },
+  { code: "hu", name: "Hungarian", nativeName: "Magyar", region: "Hungary" },
+  { code: "ro", name: "Romanian", nativeName: "Română", region: "Romania" },
+  { code: "uk", name: "Ukrainian", nativeName: "Українська", region: "Ukraine" },
+  { code: "he", name: "Hebrew", nativeName: "עברית", region: "Israel" },
+  { code: "ms", name: "Malay", nativeName: "Bahasa Melayu", region: "Malaysia" },
+  { code: "fil", name: "Filipino", nativeName: "Filipino", region: "Philippines" },
+  { code: "fa", name: "Persian", nativeName: "فارسی", region: "Iran" },
+  { code: "bg", name: "Bulgarian", nativeName: "Български", region: "Bulgaria" },
+  { code: "hr", name: "Croatian", nativeName: "Hrvatski", region: "Croatia" },
+  { code: "sk", name: "Slovak", nativeName: "Slovenčina", region: "Slovakia" },
+  { code: "sl", name: "Slovenian", nativeName: "Slovenščina", region: "Slovenia" },
+  { code: "et", name: "Estonian", nativeName: "Eesti", region: "Estonia" },
+  { code: "lv", name: "Latvian", nativeName: "Latviešu", region: "Latvia" },
+  { code: "lt", name: "Lithuanian", nativeName: "Lietuvių", region: "Lithuania" },
+  { code: "ga", name: "Irish", nativeName: "Gaeilge", region: "Ireland" },
+  { code: "is", name: "Icelandic", nativeName: "Íslenska", region: "Iceland" },
+];

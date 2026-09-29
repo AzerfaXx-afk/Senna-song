@@ -1,0 +1,45 @@
+{
+  "id": "/",
+  "name": "SENNA | 千奈 OFFICIAL",
+  "short_name": "SENNA",
+  "description": "Official mobile web app for singer & artist SENNA. News, Live Tour, Discography & Official Merch.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "window-controls-overlay"],
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "orientation": "portrait-primary",
+  "categories": ["music", "entertainment", "lifestyle"],
+  "icons": [
+    {
+      "src": "/images/hero-artist.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/hero-artist.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "News & Tour",
+      "url": "/#news",
+      "description": "Latest announcements and tour dates"
+    },
+    {
+      "name": "Discography",
+      "url": "/#discography",
+      "description": "Stream album ECLIPSE and singles"
+    },
+    {
+      "name": "Official Merch",
+      "url": "/#goods",
+      "description": "Limited edition tour apparel"
+    }
+  ]
+}
