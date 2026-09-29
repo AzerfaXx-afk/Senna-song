@@ -1,6 +1,13 @@
-export type SupportedLanguage = "ja" | "en" | "fr" | "es";
+export type SupportedLanguage = "ja" | "en" | "fr" | "es" | "de";
 
 export interface TranslationDictionary {
+  loader?: {
+    systemInit: string;
+    archiveTitle: string;
+    localeDetected: string;
+    loading: string;
+    skip: string;
+  };
   nav: {
     menu: string;
     close: string;
@@ -138,6 +145,13 @@ export interface TranslationDictionary {
 
 export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   ja: {
+    loader: {
+      systemInit: "SENNA // システム起動",
+      archiveTitle: "千奈 公式アーカイブ",
+      localeDetected: "検出された言語",
+      loading: "アーカイブ読込中",
+      skip: "スキップ [ESC]",
+    },
     nav: {
       menu: "MENU",
       close: "CLOSE",
@@ -273,6 +287,13 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     },
   },
   en: {
+    loader: {
+      systemInit: "SENNA // SYSTEM INITIALIZED",
+      archiveTitle: "SENNA OFFICIAL ARCHIVE",
+      localeDetected: "DETECTED LOCALE",
+      loading: "LOADING ARCHIVE",
+      skip: "SKIP [ESC]",
+    },
     nav: {
       menu: "MENU",
       close: "CLOSE",
@@ -408,6 +429,13 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     },
   },
   fr: {
+    loader: {
+      systemInit: "SENNA // SYSTÈME INITIALISÉ",
+      archiveTitle: "ARCHIVES OFFICIELLES SENNA",
+      localeDetected: "LANGUE DÉTECTÉE",
+      loading: "CHARGEMENT DES ARCHIVES",
+      skip: "PASSER [ESC]",
+    },
     nav: {
       menu: "MENU",
       close: "FERMER",
@@ -543,6 +571,13 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
     },
   },
   es: {
+    loader: {
+      systemInit: "SENNA // SISTEMA INICIALIZADO",
+      archiveTitle: "ARCHIVO OFICIAL SENNA",
+      localeDetected: "IDIOMA DETECTADO",
+      loading: "CARGANDO ARCHIVO",
+      skip: "SALTAR [ESC]",
+    },
     nav: {
       menu: "MENÚ",
       close: "CERRAR",
@@ -675,6 +710,148 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       soundLabel: "SONIDO",
       mute: "Silenciar audio",
       play: "Reproducir audio ambiental",
+    },
+  },
+  de: {
+    loader: {
+      systemInit: "SENNA // SYSTEM INITIALISIERT",
+      archiveTitle: "OFFIZIELLES SENNA ARCHIV",
+      localeDetected: "ERKANNTES GEBIETSSCHEMA",
+      loading: "ARCHIV WIRD GELADEN",
+      skip: "ÜBERSPRINGEN [ESC]",
+    },
+    nav: {
+      menu: "MENÜ",
+      close: "SCHLIESSEN",
+      langLabel: "Sprache wählen",
+      sennaHome: "SENNA Startseite",
+    },
+    hero: {
+      badge: "OFFIZIELLES KÜNSTLERPORTAL",
+      tagline: "Der Klang obsidianschwarzer Schatten und karmesinroter Leidenschaft. Avantgardistischer Sound trifft auf epische cinematische Vocals.",
+      contents: "INHALT",
+    },
+    menu: {
+      index: "ARCHIV-INDEX",
+      news: "NEUIGKEITEN",
+      newsSub: "AKTUELLES",
+      profile: "PROFIL",
+      profileSub: "BIOGRAFIE",
+      discography: "DISKOGRAFIE",
+      discographySub: "VERÖFFENTLICHUNGEN",
+      video: "VIDEOS",
+      videoSub: "VISUELLE WERKE",
+      dlcStream: "DLC & STREAMING",
+      dlcStreamSub: "LINKCORE HUB",
+      goods: "MERCHANDISE",
+      goodsSub: "OFFIZIELLE KOLLEKTION",
+      contact: "KONTAKT",
+      contactSub: "BOOKING & PRESSE",
+    },
+    news: {
+      sectionNum: "01 / AKTUELLES",
+      badge: "NEUIGKEITEN",
+      title: "AKTUELLES & LIVE",
+      subtitle: "TOUR & UPDATES",
+      filterAll: "ALLE",
+      filterLive: "LIVE TOUR",
+      filterRelease: "RELEASE",
+      filterMedia: "MEDIEN",
+      filterGoods: "MERCH",
+      readStory: "MEHR ERFAHREN →",
+      modalClose: "SCHLIESSEN ✕",
+      modalShare: "TEILEN",
+    },
+    profile: {
+      sectionNum: "02 / PROFIL",
+      badge: "BIOGRAFIE",
+      title: "PROFIL & VISION",
+      subtitle: "ÜBER SENNA",
+      role: "SÄNGERIN & KOMPONISTIN // TOKIO",
+      quote: "„In der absoluten Finsternis ist eine einzelne Note heller als jede Sonne.“",
+      bioParagraph1: "Geboren in Tokio, vereint SENNA (千奈) traditionelle japanische Klangästhetik mit modernstem Dark-Pop, wuchtigen Basslines und cineastischem Orchester.",
+      bioParagraph2: "Ihr Album 'ECLIPSE' eroberte Platz 1 der globalen Charts und faszinierte ein internationales Millionenpublikum.",
+      bioParagraph3: "Mit ihrer unverwechselbaren Stimme und spektakulären audiovisuellen Bühnenshows setzt SENNA weltweit neue Maßstäbe.",
+      milestonesTitle: "MEILENSTEINE & ZAHLEN",
+      statsListeners: "Monatliche Hörer weltweit",
+      statsViews: "Video-Aufrufe insgesamt",
+      statsVinyl: "Limitierte Vinyl-Exemplare vergriffen",
+    },
+    discography: {
+      sectionNum: "03 / DISKOGRAFIE",
+      badge: "DISCOGRAPHY",
+      title: "DISKOGRAFIE",
+      subtitle: "RELEASES",
+      dragHint: "Schallplattenhülle ziehen für 3D-Ansicht",
+      tracks: "Titelliste",
+      catalog: "Katalognummer",
+      releaseDate: "Veröffentlichungsdatum",
+      listenOn: "Auf Streamingdiensten hören",
+      streamAlbum: "Jetzt Album streamen",
+    },
+    video: {
+      sectionNum: "04 / VISUELLE WERKE",
+      badge: "VIDEOGRAFIE",
+      title: "OFFIZIELLE MUSIKVIDEOS",
+      subtitle: "VISUELLE WERKE",
+      watchNow: "VIDEO ANSEHEN",
+      closeVideo: "PLAYER SCHLIESSEN ✕",
+    },
+    linkcore: {
+      sectionNum: "05 / STREAMING-PORTAL",
+      badge: "STREAMING HUB",
+      title: "DLC & STREAMING",
+      subtitle: "LINKCORE / TUNECORE JAPAN",
+      description: "Direkter Zugang zu SENNAs gesamter Diskografie auf Spotify, Apple Music, YouTube Music, Amazon Music und weltweit über 100 Plattformen.",
+      openHub: "OFFIZIELLEN LINKCORE HUB ÖFFNEN ↗",
+      platformsNote: "Verfügbar auf über 100 weltweiten digitalen Musikplattformen",
+    },
+    goods: {
+      sectionNum: "06 / OFFIZIELLER SHOP",
+      badge: "MERCHANDISE",
+      title: "OFFIZIELLES MERCHANDISE",
+      subtitle: "KOLLEKTION",
+      limited: "LIMITIERTE AUFLAGE",
+      newBadge: "NEU",
+      soldOut: "AUSVERKAUFT",
+      orderNow: "JETZT BESTELLEN",
+      modalTitle: "OFFIZIELLER ONLINE-SHOP",
+      modalSubtitle: "Weltweiter internationaler Expressversand.",
+      modalNotice: "Exklusive Tour-Editionen werden in streng limitierter Stückzahl produziert.",
+      close: "SCHLIESSEN ✕",
+    },
+    contact: {
+      sectionNum: "07 / KONTAKT",
+      badge: "KONTAKT",
+      title: "BOOKING & PRESSE",
+      subtitle: "KONTAKT",
+      formName: "Vollständiger Name",
+      formEmail: "E-Mail-Adresse",
+      formCategory: "Art der Anfrage",
+      formCategoryBooking: "Konzerte & Festival-Booking",
+      formCategoryPress: "Presse- & Medienanfragen",
+      formCategoryGeneral: "Allgemeine Anfragen & Kooperationen",
+      formMessage: "Ihre Nachricht",
+      formSubmit: "ANFRAGE ABSENDEN",
+      formSuccess: "Vielen Dank für Ihre Nachricht. Unser Management-Team wird sich zeitnah bei Ihnen melden.",
+      managementTitle: "Management",
+      pressTitle: "Presseabteilung",
+      locationTitle: "Hauptsitz Tokio",
+    },
+    footer: {
+      navTitle: "NAVIGATION",
+      navSubtitle: "SEKTIONSÜBERSICHT",
+      socialsTitle: "SOCIAL MEDIA",
+      socialsSubtitle: "SENNA FOLGEN",
+      rights: "© 2026 SENNA MUSIC ENTERTAINMENT. ALLE RECHTE VORBEHALTEN.",
+      privacy: "DATENSCHUTZRICHTLINIE",
+      terms: "NUTZUNGSBEDINGUNGEN",
+      backToTop: "NACH OBEN ↑",
+    },
+    sound: {
+      soundLabel: "AUDIO",
+      mute: "Audio stummschalten",
+      play: "Ambient-Sound abspielen",
     },
   },
 };

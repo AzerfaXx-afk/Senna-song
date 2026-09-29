@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
+import ScrambleText from "@/components/common/ScrambleText";
 
 export default function HeroSection() {
   const { lang, dict } = useLanguage();
@@ -128,12 +129,17 @@ export default function HeroSection() {
       {/* ========================================================================= */}
       <div className="relative z-20 max-w-xl pb-3 sm:pb-8 space-y-1.5">
         <div className="font-condensed text-[10px] tracking-[0.4em] text-[#E50914] uppercase font-semibold">
-          {dict.hero.badge}
+          <ScrambleText text={dict.hero.badge} duration={900} hoverScramble={true} />
         </div>
 
         <div className="flex items-baseline gap-3 sm:gap-5">
           <h1 className="font-bebas text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] tracking-tight text-white leading-[0.88] drop-shadow-2xl">
-            SENNA
+            <ScrambleText
+              text="SENNA"
+              duration={1300}
+              hoverScramble={true}
+              glyphs="0123456789センナ千奈ECLIPSE808TOKYO#$!%*~+"
+            />
           </h1>
           <span className="font-serif-jp text-lg sm:text-2xl md:text-3xl text-white/40 font-normal">
             千奈

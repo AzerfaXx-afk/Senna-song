@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { siteData } from "@/data/siteData";
+import ScrambleText from "@/components/common/ScrambleText";
 
 export default function ContactSection() {
   const { dict, t } = useLanguage();
@@ -32,7 +33,7 @@ export default function ContactSection() {
             {dict.contact.sectionNum} / {dict.contact.badge}
           </span>
           <h2 className="font-bebas text-4xl sm:text-6xl text-white tracking-normal">
-            {dict.contact.title}{" "}
+            <ScrambleText text={dict.contact.title} duration={850} hoverScramble={true} />{" "}
             <span className="font-serif-jp text-lg sm:text-2xl text-white/40 ml-2 font-normal">
               {dict.contact.subtitle}
             </span>

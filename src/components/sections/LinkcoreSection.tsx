@@ -3,6 +3,7 @@
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { siteData } from "@/data/siteData";
+import ScrambleText from "@/components/common/ScrambleText";
 
 export default function LinkcoreSection() {
   const { dict, t } = useLanguage();
@@ -24,7 +25,7 @@ export default function LinkcoreSection() {
             </div>
 
             <h2 className="font-bebas text-3xl sm:text-5xl text-white tracking-normal">
-              {t(info.headline)}
+              <ScrambleText text={t(info.headline)} duration={850} hoverScramble={true} />
             </h2>
 
             <p className="font-sans-jp text-sm text-white/70 font-light leading-relaxed max-w-lg">
