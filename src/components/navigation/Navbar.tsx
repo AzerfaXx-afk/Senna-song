@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { WORLD_LANGUAGES, LanguageOption } from "@/data/languages";
 import { siteData } from "@/data/siteData";
+import ScrambleText from "@/components/common/ScrambleText";
 
 interface NavbarProps {
   onOpenMenu: () => void;
@@ -329,8 +330,12 @@ export default function Navbar({ onOpenMenu, isMenuOpen }: NavbarProps) {
             </div>
 
             {/* Vertical MENU/CLOSE label */}
-            <span className="font-condensed text-[10px] tracking-[0.4em] uppercase text-white/35 group-hover:text-white transition-colors [writing-mode:vertical-rl] font-semibold select-none">
-              {isMenuOpen ? (dict.nav?.close || "CLOSE") : (dict.nav?.menu || "MENU")}
+            <span className="font-condensed text-[10px] tracking-[0.4em] uppercase text-white/30 group-hover:text-white transition-colors [writing-mode:vertical-rl] font-semibold select-none">
+              <ScrambleText
+                text={isMenuOpen ? (dict.nav?.close || "CLOSE") : (dict.nav?.menu || "MENU")}
+                duration={2000}
+                delay={150}
+              />
             </span>
           </button>
         </div>

@@ -19,7 +19,7 @@ interface ScrambleTextProps {
 
 export default function ScrambleText({
   text,
-  duration = 900,
+  duration = 2000,
   delay = 0,
   scrambleSpeed = 35,
   glyphs = DEFAULT_GLYPHS,

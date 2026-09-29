@@ -91,7 +91,7 @@ export default function HeroSection() {
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-        className="lg:absolute lg:right-10 xl:right-14 lg:top-1/2 lg:-translate-y-1/2 z-20 flex items-center gap-3 sm:gap-5 my-6 lg:my-0"
+        className="lg:absolute right-6 sm:right-10 lg:right-14 lg:top-1/2 lg:-translate-y-1/2 z-20 flex items-center gap-3 sm:gap-5 my-6 lg:my-0"
       >
         {/* Main 4 Core Sections: NEWS, PROFILE, DISCOGRAPHY, VIDEO */}
         <nav
@@ -115,26 +115,34 @@ export default function HeroSection() {
                 <span className="font-bebas text-2xl sm:text-3xl lg:text-4xl text-white tracking-normal group-hover:text-[#E50914] transition-colors duration-300 drop-shadow-md">
                   <ScrambleText
                     text={sec.en}
-                    duration={700 + index * 80}
-                    delay={200 + index * 70}
+                    duration={1900 + index * 60}
+                    delay={180 + index * 60}
                   />
                 </span>
                 {/* Artistic animated underline (expands smoothly from right on hover) */}
                 <span className="absolute -bottom-0.5 right-0 w-0 group-hover:w-full h-[1.5px] bg-[#E50914] transition-all duration-300 ease-[0.22,1,0.36,1] pointer-events-none" />
               </div>
 
-              {/* Translated Subtitle / Tagline */}
+              {/* Translated Subtitle / Tagline with stylized scramble decode */}
               <span className="font-serif-jp text-[11px] sm:text-xs text-white/40 group-hover:text-white/80 transition-colors duration-300 font-normal">
-                {lang === "ja" ? sec.title : `(${sec.sub})`}
+                <ScrambleText
+                  text={lang === "ja" ? sec.title : `(${sec.sub})`}
+                  duration={1900 + index * 60}
+                  delay={220 + index * 60}
+                />
               </span>
             </a>
           ))}
         </nav>
 
-        {/* Vertical "CONTENTS" Label (Matching exact user reference) */}
-        <div className="hidden lg:flex items-center justify-center select-none pl-1">
+        {/* Vertical "SECTIONS / CONTENTS" Label (Identical right spine & typography as MENU and SON) */}
+        <div className="hidden lg:flex items-center justify-center select-none">
           <span className="font-condensed text-[10px] tracking-[0.4em] uppercase text-white/30 [writing-mode:vertical-rl] font-semibold">
-            {dict.hero.contents}
+            <ScrambleText
+              text={dict.hero.contents}
+              duration={2000}
+              delay={200}
+            />
           </span>
         </div>
       </motion.div>
@@ -149,20 +157,25 @@ export default function HeroSection() {
         className="relative z-20 max-w-xl pb-3 sm:pb-8 space-y-1.5"
       >
         <div className="font-condensed text-[10px] tracking-[0.4em] text-[#E50914] uppercase font-semibold">
-          <ScrambleText text={dict.hero.badge} duration={750} delay={100} />
+          <ScrambleText text={dict.hero.badge} duration={1900} delay={100} />
         </div>
 
         <div className="flex items-baseline gap-3 sm:gap-5">
           <h1 className="font-bebas text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] tracking-tight text-white leading-[0.88] drop-shadow-2xl">
             <ScrambleText
               text="SENNA"
-              duration={1000}
+              duration={2000}
               delay={150}
               glyphs="0123456789センナ千奈ECLIPSE808TOKYO#$!%*~+"
             />
           </h1>
           <span className="font-serif-jp text-lg sm:text-2xl md:text-3xl text-white/40 font-normal">
-            千奈
+            <ScrambleText
+              text="千奈"
+              duration={2000}
+              delay={200}
+              glyphs="千奈センナ東京0123456789"
+            />
           </span>
         </div>
 

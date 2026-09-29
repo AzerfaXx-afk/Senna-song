@@ -81,11 +81,11 @@ export default function HomePage() {
       {/* Bottom Footer & Socials */}
       <Footer />
 
-      {/* Permanent Bottom-Center Floating Social Media Dock (Always Attached) */}
-      <FloatingSocialDock />
+      {/* Bottom-Center Floating Social Media Dock (Fades away when menu is open) */}
+      <FloatingSocialDock isMenuOpen={isMenuOpen} />
 
-      {/* Permanent Bottom-Right Speaker Sound Button (Always Visible, Mobile-Optimized) */}
-      <FloatingSpeakerButton />
+      {/* Bottom-Right Speaker Sound Button (Fades away when menu is open) */}
+      <FloatingSpeakerButton isMenuOpen={isMenuOpen} />
 
       {/* Luxury Red Awwwards PWA App Installer Button */}
       <PwaManager />

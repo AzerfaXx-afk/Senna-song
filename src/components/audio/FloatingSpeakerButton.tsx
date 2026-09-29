@@ -4,8 +4,13 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useAudio } from "@/context/AudioContext";
 import { useLanguage } from "@/context/LanguageContext";
+import ScrambleText from "@/components/common/ScrambleText";
 
-export default function FloatingSpeakerButton() {
+interface FloatingSpeakerButtonProps {
+  isMenuOpen?: boolean;
+}
+
+export default function FloatingSpeakerButton({ isMenuOpen = false }: FloatingSpeakerButtonProps) {
   const { isPlaying, toggleAudio } = useAudio();
   const { dict } = useLanguage();
   const [isJumping, setIsJumping] = useState(false);
@@ -18,8 +23,9 @@ export default function FloatingSpeakerButton() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+      animate={{ opacity: isMenuOpen ? 0 : 1, y: isMenuOpen ? 10 : 0 }}
+      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+      style={{ pointerEvents: isMenuOpen ? "none" : "auto" }}
       className="fixed bottom-6 sm:bottom-8 right-6 sm:right-10 lg:right-14 z-50 select-none flex items-center"
     >
       <button
@@ -98,8 +104,12 @@ export default function FloatingSpeakerButton() {
         </motion.div>
 
         {/* Vertical SOUND / SON label on desktop ONLY (hidden on mobile phone screens) */}
-        <span className="hidden sm:inline-block font-condensed text-[10px] tracking-[0.4em] uppercase text-white/35 group-hover:text-white transition-colors [writing-mode:vertical-rl] select-none font-semibold">
-          {dict.sound?.soundLabel || "SOUND"}
+        <span className="hidden sm:inline-block font-condensed text-[10px] tracking-[0.4em] uppercase text-white/30 group-hover:text-white transition-colors [writing-mode:vertical-rl] select-none font-semibold">
+          <ScrambleText
+            text={dict.sound?.soundLabel || "SOUND"}
+            duration={2000}
+            delay={250}
+          />
         </span>
       </button>
     </motion.div>
