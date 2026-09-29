@@ -120,16 +120,6 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8">
-            <button
-              onClick={() => {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-                window.dispatchEvent(new CustomEvent("senna_replay_intro"));
-              }}
-              className="hover:text-[#E50914] transition-colors cursor-pointer flex items-center gap-1.5"
-            >
-              <span>CINEMATIC INTRO</span>
-              <span>↺</span>
-            </button>
             <span className="hover:text-white transition-colors cursor-pointer">
               {dict.footer.privacy}
             </span>

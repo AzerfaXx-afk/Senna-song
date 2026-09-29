@@ -87,7 +87,7 @@ export default function HeroSection() {
           className="flex flex-col lg:items-end space-y-1.5 sm:space-y-2"
           aria-label="Main Page Sections"
         >
-          {primarySections.map((sec) => (
+          {primarySections.map((sec, index) => (
             <a
               key={sec.id}
               href={`#${sec.id}`}
@@ -102,7 +102,11 @@ export default function HeroSection() {
               {/* Sleeker Pro Editorial Title with Artistic Underline */}
               <div className="relative inline-flex flex-col">
                 <span className="font-bebas text-2xl sm:text-3xl lg:text-4xl text-white tracking-normal group-hover:text-[#E50914] transition-colors duration-300 drop-shadow-md">
-                  {sec.en}
+                  <ScrambleText
+                    text={sec.en}
+                    duration={800 + index * 180}
+                    hoverScramble={true}
+                  />
                 </span>
                 {/* Artistic animated underline (expands smoothly from right on hover) */}
                 <span className="absolute -bottom-0.5 right-0 w-0 group-hover:w-full h-[1.5px] bg-[#E50914] transition-all duration-300 ease-[0.22,1,0.36,1] pointer-events-none" />
