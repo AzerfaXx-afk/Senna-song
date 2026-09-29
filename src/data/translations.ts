@@ -49,6 +49,8 @@ export interface TranslationDictionary {
     readStory: string;
     modalClose: string;
     modalShare: string;
+    officialPress: string;
+    linkCopied: string;
   };
   profile: {
     sectionNum: string;
@@ -64,6 +66,7 @@ export interface TranslationDictionary {
     statsListeners: string;
     statsViews: string;
     statsVinyl: string;
+    toggleLang: string;
   };
   discography: {
     sectionNum: string;
@@ -82,6 +85,7 @@ export interface TranslationDictionary {
     badge: string;
     title: string;
     subtitle: string;
+    tagline: string;
     watchNow: string;
     closeVideo: string;
   };
@@ -93,38 +97,48 @@ export interface TranslationDictionary {
     description: string;
     openHub: string;
     platformsNote: string;
+    availableChannels: string;
+    hiResTag: string;
   };
   goods: {
     sectionNum: string;
     badge: string;
     title: string;
     subtitle: string;
+    tagline: string;
     limited: string;
     newBadge: string;
     soldOut: string;
     orderNow: string;
+    approx: string;
     modalTitle: string;
     modalSubtitle: string;
     modalNotice: string;
     close: string;
+    storeAlert: string;
   };
   contact: {
     sectionNum: string;
     badge: string;
     title: string;
     subtitle: string;
+    tagline: string;
     formName: string;
+    formNamePlaceholder: string;
     formEmail: string;
+    formEmailPlaceholder: string;
     formCategory: string;
     formCategoryBooking: string;
     formCategoryPress: string;
     formCategoryGeneral: string;
     formMessage: string;
+    formMessagePlaceholder: string;
     formSubmit: string;
     formSuccess: string;
     managementTitle: string;
     pressTitle: string;
     locationTitle: string;
+    locationValue: string;
   };
   footer: {
     navTitle: string;
@@ -140,6 +154,12 @@ export interface TranslationDictionary {
     soundLabel: string;
     mute: string;
     play: string;
+  };
+  langModal: {
+    title: string;
+    countSubtitle: string;
+    searchPlaceholder: string;
+    noMatch: string;
   };
 }
 
@@ -193,6 +213,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       readStory: "記事を読む →",
       modalClose: "閉じる ✕",
       modalShare: "シェアする",
+      officialPress: "千奈 公式プレスリリース",
+      linkCopied: "リンクをクリップボードにコピーしました！",
     },
     profile: {
       sectionNum: "02 / アーティスト紹介",
@@ -208,6 +230,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       statsListeners: "月間リスナー",
       statsViews: "総再生回数",
       statsVinyl: "限定盤完売",
+      toggleLang: "READ IN ENGLISH ↗",
     },
     discography: {
       sectionNum: "03 / 音楽カタログ",
@@ -226,6 +249,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       badge: "VIDEO",
       title: "映像作品",
       subtitle: "VISUALS",
+      tagline: "公式ミュージックビデオ & ライブ映像",
       watchNow: "MVを再生する",
       closeVideo: "プレイヤーを閉じる ✕",
     },
@@ -237,38 +261,48 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       description: "Apple Music, Spotify, YouTube Music, Amazon Music, LINE MUSICなど、世界中の主要ストリーミングサービスでSENNAの全楽曲を即座にストリーミング＆ダウンロード可能。",
       openHub: "公式Linkcoreハブを開く ↗",
       platformsNote: "100以上のデジタル音楽プラットフォームに対応",
+      availableChannels: "配信プラットフォーム",
+      hiResTag: "ハイレゾ & ロスレス対応",
     },
     goods: {
       sectionNum: "06 / 公式グッズ",
       badge: "OFFICIAL MERCHANDISE",
       title: "オフィシャルグッズ",
       subtitle: "MERCHANDISE",
+      tagline: "SENNA 公式カプセルコレクション & 限定アナログ盤",
       limited: "数量限定",
       newBadge: "新商品",
       soldOut: "完売",
       orderNow: "ストアで購入する",
+      approx: "約",
       modalTitle: "公式オンラインストア",
       modalSubtitle: "国内・海外発送に対応しております。",
       modalNotice: "限定グッズは数に限りがございます。売り切れの際はご容赦ください。",
       close: "閉じる ✕",
+      storeAlert: "公式オンラインストアへ移動します。",
     },
     contact: {
       sectionNum: "07 / お問い合わせ",
       badge: "CONTACT",
       title: "お問い合わせ",
       subtitle: "INQUIRIES",
+      tagline: "出演依頼・取材・コラボレーション",
       formName: "お名前",
+      formNamePlaceholder: "例：山田 太郎",
       formEmail: "メールアドレス",
+      formEmailPlaceholder: "例：contact@domain.com",
       formCategory: "お問い合わせ種別",
       formCategoryBooking: "出演・公演依頼 (Booking)",
       formCategoryPress: "取材・メディア掲載 (Press)",
       formCategoryGeneral: "その他のお問い合わせ (General)",
       formMessage: "お問い合わせ内容",
+      formMessagePlaceholder: "お問い合わせ内容をご記入ください...",
       formSubmit: "メッセージを送信する",
       formSuccess: "お問い合わせありがとうございます。内容を確認の上、担当者よりご連絡いたします。",
       managementTitle: "マネジメント",
       pressTitle: "プレス・広報",
       locationTitle: "所在地",
+      locationValue: "東京都港区",
     },
     footer: {
       navTitle: "メニュー",
@@ -284,6 +318,12 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       soundLabel: "音響",
       mute: "音声をミュート",
       play: "アンビエント音を再生",
+    },
+    langModal: {
+      title: "言語を選択 / SELECT LANGUAGE",
+      countSubtitle: "対応言語",
+      searchPlaceholder: "言語を検索 (例: 日本語, English, Français)...",
+      noMatch: "一致する言語が見つかりませんでした",
     },
   },
   en: {
@@ -335,6 +375,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       readStory: "READ STORY →",
       modalClose: "CLOSE ✕",
       modalShare: "SHARE STORY",
+      officialPress: "SENNA OFFICIAL PRESS RELEASE",
+      linkCopied: "Link copied to clipboard!",
     },
     profile: {
       sectionNum: "02 / ARTISTIC IDENTITY",
@@ -350,6 +392,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       statsListeners: "Monthly Listeners",
       statsViews: "Global Streams",
       statsVinyl: "Vinyl Pressings Sold",
+      toggleLang: "日本語で読む ↗",
     },
     discography: {
       sectionNum: "03 / SOUND CATALOG",
@@ -368,6 +411,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       badge: "VIDEO",
       title: "OFFICIAL VISUALS",
       subtitle: "CINEMA",
+      tagline: "OFFICIAL MUSIC VIDEOS & CONCERT FOOTAGE",
       watchNow: "WATCH VISUAL",
       closeVideo: "CLOSE PLAYER ✕",
     },
@@ -379,38 +423,48 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       description: "Direct instant access to SENNA's complete digital catalog across Spotify, Apple Music, YouTube Music, Amazon Music, and all global streaming networks.",
       openHub: "OPEN OFFICIAL LINKCORE HUB ↗",
       platformsNote: "Synchronized across 100+ global digital music platforms",
+      availableChannels: "AVAILABLE CHANNELS",
+      hiResTag: "HI-RES & LOSSLESS",
     },
     goods: {
       sectionNum: "06 / OFFICIAL COLLECTION",
       badge: "MERCHANDISE",
       title: "OFFICIAL MERCHANDISE",
       subtitle: "COLLECTION",
+      tagline: "SENNA OFFICIAL CAPSULE COLLECTION & VINYL",
       limited: "LIMITED EDITION",
       newBadge: "NEW",
       soldOut: "SOLD OUT",
       orderNow: "PURCHASE ITEM",
+      approx: "approx.",
       modalTitle: "OFFICIAL ONLINE BOUTIQUE",
       modalSubtitle: "Worldwide international shipping available.",
       modalNotice: "Limited tour editions are pressed in restricted quantities. While stocks last.",
       close: "CLOSE ✕",
+      storeAlert: "Redirecting to official online boutique...",
     },
     contact: {
       sectionNum: "07 / INQUIRIES",
       badge: "CONTACT",
       title: "PRESS & BOOKING",
       subtitle: "INQUIRIES",
+      tagline: "BOOKING, PRESS & COLLABORATIONS",
       formName: "Full Name",
+      formNamePlaceholder: "e.g. Alex Morgan",
       formEmail: "Email Address",
+      formEmailPlaceholder: "e.g. contact@domain.com",
       formCategory: "Inquiry Type",
       formCategoryBooking: "Live Booking & Festival Inquiries",
       formCategoryPress: "Press & Media Inquiries",
       formCategoryGeneral: "General Inquiries & Collaboration",
       formMessage: "Your Message",
+      formMessagePlaceholder: "Describe your inquiry...",
       formSubmit: "SUBMIT INQUIRY",
       formSuccess: "Thank you for reaching out. Our management team will respond shortly.",
       managementTitle: "Management",
       pressTitle: "Press & Media",
       locationTitle: "Headquarters",
+      locationValue: "Minato-ku, Tokyo, Japan",
     },
     footer: {
       navTitle: "MAIN NAVIGATION",
@@ -426,6 +480,12 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       soundLabel: "SOUND",
       mute: "Mute Atmosphere",
       play: "Play Atmosphere",
+    },
+    langModal: {
+      title: "SELECT LANGUAGE",
+      countSubtitle: "LANGUAGES AVAILABLE",
+      searchPlaceholder: "Search language (e.g. English, Français, 日本語)...",
+      noMatch: "No language found matching",
     },
   },
   fr: {
@@ -477,6 +537,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       readStory: "LIRE L'ARTICLE →",
       modalClose: "FERMER ✕",
       modalShare: "PARTAGER L'ARTICLE",
+      officialPress: "COMMUNIQUÉ OFFICIEL SENNA",
+      linkCopied: "Lien copié dans le presse-papiers !",
     },
     profile: {
       sectionNum: "02 / IDENTITÉ ARTISTIQUE",
@@ -492,6 +554,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       statsListeners: "Auditeurs Mensuels",
       statsViews: "Écoutes Mondiales",
       statsVinyl: "Vinyles Collector Épuisés",
+      toggleLang: "READ IN ENGLISH ↗",
     },
     discography: {
       sectionNum: "03 / CATALOGUE SONORE",
@@ -510,6 +573,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       badge: "VIDÉOS",
       title: "VISUELS OFFICIELS",
       subtitle: "CLIPS VIDÉO",
+      tagline: "CLIPS VIDÉOS OFFICIELS & CAPTATIONS LIVE",
       watchNow: "VOIR LE CLIP",
       closeVideo: "FERMER LE LECTEUR ✕",
     },
@@ -521,38 +585,48 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       description: "Accès instantané à l'intégralité du catalogue discographique de SENNA sur Apple Music, Spotify, YouTube Music, Amazon Music et l'ensemble des réseaux de diffusion mondiaux.",
       openHub: "OUVRIR LE HUB OFFICIEL LINKCORE ↗",
       platformsNote: "Disponible sur plus de 100 plateformes de musique numérique",
+      availableChannels: "PLATEFORMES DISPONIBLES",
+      hiResTag: "HI-RES & SANS PERTE",
     },
     goods: {
       sectionNum: "06 / BOUTIQUE OFFICIELLE",
       badge: "MERCHANDISE",
       title: "BOUTIQUE OFFICIELLE",
       subtitle: "ARTICLES OFFICIELS",
+      tagline: "COLLECTION CAPSULE OFFICIELLE & VINYLES SENNA",
       limited: "ÉDITION LIMITÉE",
       newBadge: "NOUVEAU",
       soldOut: "ÉPUISÉ",
       orderNow: "COMMANDER L'ARTICLE",
+      approx: "environ",
       modalTitle: "BOUTIQUE EN LIGNE OFFICIELLE",
       modalSubtitle: "Expédition internationale dans le monde entier.",
       modalNotice: "Les éditions limitées sont pressées en quantités restreintes, jusqu'à épuisement des stocks.",
       close: "FERMER ✕",
+      storeAlert: "Redirection vers la boutique officielle...",
     },
     contact: {
       sectionNum: "07 / CONTACT & RÉSERVATIONS",
       badge: "CONTACT",
       title: "PRESSE & BOOKING",
       subtitle: "CONTACT",
+      tagline: "RÉSERVATIONS, PRESSE & COLLABORATIONS",
       formName: "Nom complet",
+      formNamePlaceholder: "ex. Jean Dupont",
       formEmail: "Adresse e-mail",
+      formEmailPlaceholder: "ex. contact@domaine.fr",
       formCategory: "Type de demande",
       formCategoryBooking: "Concerts & Réservations Festivals",
       formCategoryPress: "Presse & Demandes Médias",
       formCategoryGeneral: "Demandes générales & Collaborations",
       formMessage: "Votre message",
+      formMessagePlaceholder: "Décrivez votre demande...",
       formSubmit: "ENVOYER LA DEMANDE",
       formSuccess: "Merci pour votre message. Notre équipe de management vous répondra dans les plus brefs délais.",
       managementTitle: "Management",
       pressTitle: "Relations Presse",
       locationTitle: "Siège & Bureaux",
+      locationValue: "Minato-ku, Tokyo, Japon",
     },
     footer: {
       navTitle: "NAVIGATION",
@@ -568,6 +642,12 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       soundLabel: "SON",
       mute: "Couper l'ambiance sonore",
       play: "Activer l'ambiance sonore",
+    },
+    langModal: {
+      title: "CHOISIR LA LANGUE",
+      countSubtitle: "LANGUES DISPONIBLES",
+      searchPlaceholder: "Rechercher une langue (ex. Français, English, 日本語)...",
+      noMatch: "Aucune langue trouvée pour",
     },
   },
   es: {
@@ -619,6 +699,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       readStory: "LEER NOTICIA →",
       modalClose: "CERRAR ✕",
       modalShare: "COMPARTIR NOTICIA",
+      officialPress: "COMUNICADO OFICIAL SENNA",
+      linkCopied: "¡Enlace copiado al portapapeles!",
     },
     profile: {
       sectionNum: "02 / IDENTIDAD ARTÍSTICA",
@@ -634,6 +716,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       statsListeners: "Oyentes Mensuales",
       statsViews: "Reproducciones Globales",
       statsVinyl: "Vinilos Exclusivos Agotados",
+      toggleLang: "READ IN ENGLISH ↗",
     },
     discography: {
       sectionNum: "03 / CATÁLOGO MUSICAL",
@@ -652,6 +735,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       badge: "VIDEOS",
       title: "VISUALES OFICIALES",
       subtitle: "VIDEOS",
+      tagline: "VIDEOCLIPS OFICIALES Y METRAJE DE CONCIERTOS",
       watchNow: "VER VIDEO",
       closeVideo: "CERRAR REPRODUCTOR ✕",
     },
@@ -663,38 +747,48 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       description: "Acceso instantáneo al catálogo completo de SENNA en Spotify, Apple Music, YouTube Music, Amazon Music y todas las plataformas de streaming del mundo.",
       openHub: "ABRIR LINKCORE HUB OFICIAL ↗",
       platformsNote: "Disponible en más de 100 plataformas musicales digitales",
+      availableChannels: "CANALES DISPONIBLES",
+      hiResTag: "HI-RES Y SIN PÉRDIDA",
     },
     goods: {
       sectionNum: "06 / COLECCIÓN OFICIAL",
       badge: "MERCHANDISE",
       title: "PRODUCTOS OFICIALES",
       subtitle: "COLECCIÓN",
+      tagline: "COLECCIÓN CÁPSULA OFICIAL Y VINILOS SENNA",
       limited: "EDICIÓN LIMITADA",
       newBadge: "NUEVO",
       soldOut: "AGOTADO",
       orderNow: "COMPRAR PRODUCTO",
+      approx: "aprox.",
       modalTitle: "TIENDA ONLINE OFICIAL",
       modalSubtitle: "Envíos internacionales a todo el mundo.",
       modalNotice: "Las ediciones limitadas de gira se fabrican en cantidades restringidas.",
       close: "CERRAR ✕",
+      storeAlert: "Redirigiendo a la tienda oficial...",
     },
     contact: {
       sectionNum: "07 / CONTACTO",
       badge: "CONTACTO",
       title: "PRENSA & CONTRATACIONES",
       subtitle: "CONTACTO",
+      tagline: "CONTRATACIONES, PRENSA Y COLABORACIONES",
       formName: "Nombre completo",
+      formNamePlaceholder: "ej. Carlos Santana",
       formEmail: "Correo electrónico",
+      formEmailPlaceholder: "ej. contacto@dominio.com",
       formCategory: "Tipo de consulta",
       formCategoryBooking: "Conciertos y Festivales (Booking)",
       formCategoryPress: "Prensa y Medios de Comunicación",
       formCategoryGeneral: "Consultas Generales y Colaboración",
       formMessage: "Su mensaje",
+      formMessagePlaceholder: "Describa su consulta...",
       formSubmit: "ENVIAR CONSULTA",
       formSuccess: "Gracias por comunicarse. Nuestro equipo de management le responderá a la brevedad.",
       managementTitle: "Management",
       pressTitle: "Prensa y Comunicación",
       locationTitle: "Sede Tokio",
+      locationValue: "Minato-ku, Tokio, Japón",
     },
     footer: {
       navTitle: "NAVEGACIÓN",
@@ -710,6 +804,12 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       soundLabel: "SONIDO",
       mute: "Silenciar audio",
       play: "Reproducir audio ambiental",
+    },
+    langModal: {
+      title: "SELECCIONAR IDIOMA",
+      countSubtitle: "IDIOMAS DISPONIBLES",
+      searchPlaceholder: "Buscar idioma (ej. Español, English, 日本語)...",
+      noMatch: "No se encontró ningún idioma para",
     },
   },
   de: {
@@ -761,6 +861,8 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       readStory: "MEHR ERFAHREN →",
       modalClose: "SCHLIESSEN ✕",
       modalShare: "TEILEN",
+      officialPress: "OFFIZIELLE SENNA PRESSEMITTEILUNG",
+      linkCopied: "Link in die Zwischenablage kopiert!",
     },
     profile: {
       sectionNum: "02 / PROFIL",
@@ -776,6 +878,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       statsListeners: "Monatliche Hörer weltweit",
       statsViews: "Video-Aufrufe insgesamt",
       statsVinyl: "Limitierte Vinyl-Exemplare vergriffen",
+      toggleLang: "READ IN ENGLISH ↗",
     },
     discography: {
       sectionNum: "03 / DISKOGRAFIE",
@@ -794,6 +897,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       badge: "VIDEOGRAFIE",
       title: "OFFIZIELLE MUSIKVIDEOS",
       subtitle: "VISUELLE WERKE",
+      tagline: "OFFIZIELLE MUSIKVIDEOS & KONZERTVIDEOS",
       watchNow: "VIDEO ANSEHEN",
       closeVideo: "PLAYER SCHLIESSEN ✕",
     },
@@ -805,38 +909,48 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       description: "Direkter Zugang zu SENNAs gesamter Diskografie auf Spotify, Apple Music, YouTube Music, Amazon Music und weltweit über 100 Plattformen.",
       openHub: "OFFIZIELLEN LINKCORE HUB ÖFFNEN ↗",
       platformsNote: "Verfügbar auf über 100 weltweiten digitalen Musikplattformen",
+      availableChannels: "VERFÜGBARE PLATTFORMEN",
+      hiResTag: "HI-RES & LOSSLESS",
     },
     goods: {
       sectionNum: "06 / OFFIZIELLER SHOP",
       badge: "MERCHANDISE",
       title: "OFFIZIELLES MERCHANDISE",
       subtitle: "KOLLEKTION",
+      tagline: "SENNA OFFIZIELLE KAPSELKOLLEKTION & VINYL",
       limited: "LIMITIERTE AUFLAGE",
       newBadge: "NEU",
       soldOut: "AUSVERKAUFT",
       orderNow: "JETZT BESTELLEN",
+      approx: "ca.",
       modalTitle: "OFFIZIELLER ONLINE-SHOP",
       modalSubtitle: "Weltweiter internationaler Expressversand.",
       modalNotice: "Exklusive Tour-Editionen werden in streng limitierter Stückzahl produziert.",
       close: "SCHLIESSEN ✕",
+      storeAlert: "Weiterleitung zum offiziellen Store...",
     },
     contact: {
       sectionNum: "07 / KONTAKT",
       badge: "KONTAKT",
       title: "BOOKING & PRESSE",
       subtitle: "KONTAKT",
+      tagline: "BOOKING, PRESSE & KOOPERATIONEN",
       formName: "Vollständiger Name",
+      formNamePlaceholder: "z.B. Max Mustermann",
       formEmail: "E-Mail-Adresse",
+      formEmailPlaceholder: "z.B. kontakt@domain.de",
       formCategory: "Art der Anfrage",
       formCategoryBooking: "Konzerte & Festival-Booking",
       formCategoryPress: "Presse- & Medienanfragen",
       formCategoryGeneral: "Allgemeine Anfragen & Kooperationen",
       formMessage: "Ihre Nachricht",
+      formMessagePlaceholder: "Beschreiben Sie Ihre Anfrage...",
       formSubmit: "ANFRAGE ABSENDEN",
       formSuccess: "Vielen Dank für Ihre Nachricht. Unser Management-Team wird sich zeitnah bei Ihnen melden.",
       managementTitle: "Management",
       pressTitle: "Presseabteilung",
       locationTitle: "Hauptsitz Tokio",
+      locationValue: "Minato-ku, Tokio, Japan",
     },
     footer: {
       navTitle: "NAVIGATION",
@@ -852,6 +966,12 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       soundLabel: "AUDIO",
       mute: "Audio stummschalten",
       play: "Ambient-Sound abspielen",
+    },
+    langModal: {
+      title: "SPRACHE WÄHLEN",
+      countSubtitle: "VERFÜGBARE SPRACHEN",
+      searchPlaceholder: "Sprache suchen (z.B. Deutsch, English, Français)...",
+      noMatch: "Keine Sprache gefunden für",
     },
   },
 };

@@ -11,6 +11,10 @@
   --text-muted: #8E8E93;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   background-color: var(--bg-deep);
   color: var(--text-main);

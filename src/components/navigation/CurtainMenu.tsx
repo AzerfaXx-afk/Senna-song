@@ -25,15 +25,12 @@ export default function CurtainMenu({ isOpen, onClose }: CurtainMenuProps) {
     const win = window as unknown as { lenis?: { stop: () => void; start: () => void } };
     win.lenis?.stop();
 
-    // 2. Lock both body and HTML scroll completely
+    // 2. Lock body scroll cleanly without layout shift
     const prevBodyOverflow = document.body.style.overflow;
-    const prevHtmlOverflow = document.documentElement.style.overflow;
     document.body.style.overflow = "hidden";
-    document.documentElement.style.overflow = "hidden";
 
     // 3. Block wheel and touchmove from ever reaching the background page
     const preventScroll = (e: Event) => {
-      // Allow internal scrolling inside the menu if content overflows vertically
       const target = e.target as HTMLElement;
       if (target && target.closest("[data-menu-scroll='true']")) {
         return;
@@ -48,7 +45,6 @@ export default function CurtainMenu({ isOpen, onClose }: CurtainMenuProps) {
 
     return () => {
       document.body.style.overflow = prevBodyOverflow;
-      document.documentElement.style.overflow = prevHtmlOverflow;
       window.removeEventListener("wheel", preventScroll);
       window.removeEventListener("touchmove", preventScroll);
       document.removeEventListener("keydown", handleKeyDown);
@@ -56,7 +52,7 @@ export default function CurtainMenu({ isOpen, onClose }: CurtainMenuProps) {
     };
   }, [isOpen, onClose]);
 
-  // The 7 Official Menu Items requested by the artist in exact specification order
+  // The 7 Official Menu Items with genuine Senna 4K imagery
   const menuItems = [
     {
       number: "01",
@@ -64,7 +60,7 @@ export default function CurtainMenu({ isOpen, onClose }: CurtainMenuProps) {
       en: "NEWS",
       title: dict.menu.news,
       sub: dict.menu.newsSub,
-      preview: "/images/hero-artistic-cover.jpg",
+      preview: "/images/senna-home.jpeg",
     },
     {
       number: "02",
@@ -72,7 +68,7 @@ export default function CurtainMenu({ isOpen, onClose }: CurtainMenuProps) {
       en: "PROFILE",
       title: dict.menu.profile,
       sub: dict.menu.profileSub,
-      preview: "/images/hero-artist.jpg",
+      preview: "/images/senna-home.jpeg",
     },
     {
       number: "03",
@@ -112,7 +108,7 @@ export default function CurtainMenu({ isOpen, onClose }: CurtainMenuProps) {
       en: "CONTACT",
       title: dict.menu.contact,
       sub: dict.menu.contactSub,
-      preview: "/images/hero-artistic-cover.jpg",
+      preview: "/images/senna-home.jpeg",
     },
   ];
 
@@ -131,28 +127,25 @@ export default function CurtainMenu({ isOpen, onClose }: CurtainMenuProps) {
       } else {
         element.scrollIntoView({ behavior: "smooth" });
       }
-    }, 200);
+    }, 180);
   };
 
   // Silky smooth hardware-accelerated curtain variants with zero stutter
   const curtainVariants: Variants = {
     hidden: {
       y: "-100%",
-      opacity: 1,
     },
     visible: {
       y: "0%",
-      opacity: 1,
       transition: {
-        duration: 0.65,
-        ease: [0.22, 1, 0.36, 1] as const,
+        duration: 0.52,
+        ease: [0.16, 1, 0.3, 1] as const,
       },
     },
     exit: {
       y: "-100%",
-      opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.42,
         ease: [0.76, 0, 0.24, 1] as const,
       },
     },
@@ -163,34 +156,34 @@ export default function CurtainMenu({ isOpen, onClose }: CurtainMenuProps) {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.05,
-        delayChildren: 0.2,
+        staggerChildren: 0.04,
+        delayChildren: 0.15,
       },
     },
     exit: {
       opacity: 0,
       transition: {
-        staggerChildren: 0.03,
+        staggerChildren: 0.02,
         staggerDirection: -1,
       },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 22 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.55,
-        ease: [0.22, 1, 0.36, 1] as const,
+        duration: 0.45,
+        ease: [0.16, 1, 0.3, 1] as const,
       },
     },
     exit: {
       opacity: 0,
-      y: -20,
+      y: -15,
       transition: {
-        duration: 0.25,
+        duration: 0.2,
         ease: [0.76, 0, 0.24, 1] as const,
       },
     },
@@ -211,29 +204,32 @@ export default function CurtainMenu({ isOpen, onClose }: CurtainMenuProps) {
           aria-label="Navigation Menu"
         >
           {/* ========================================================================= */}
-          {/* SUBTLE 4K HOVER PREVIEW (DESKTOP MOUSE HOVER ONLY - ZERO IMAGE AT REST/HOME) */}
+          {/* HIGH-PERFORMANCE HOVER PREVIEW (DESKTOP MOUSE HOVER ONLY - ZERO FILTER LAG) */}
           {/* ========================================================================= */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 hidden md:block">
-            {/* Hover state ONLY: Vibrant 4K Section visual reveals seamlessly across the background */}
-            {menuItems.map((item, index) => (
+            {hoveredIndex !== null && (
               <div
-                key={item.id}
-                className="absolute inset-0 bg-cover bg-center transition-opacity duration-500 ease-out"
+                key={menuItems[hoveredIndex].id}
+                className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-out"
                 style={{
-                  backgroundImage: `url(${item.preview})`,
-                  opacity: hoveredIndex === index ? 0.42 : 0,
-                  filter: "contrast(115%) brightness(0.9)",
+                  backgroundImage: `url(${menuItems[hoveredIndex].preview})`,
+                  opacity: 0.38,
                 }}
               />
-            ))}
+            )}
 
             {/* Smooth Vignettes: High legibility for left text + maximum luminosity for right artwork */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/85 to-[#050505]/40" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]" />
           </div>
 
-          {/* Atmospheric Ambient Glow behind typography */}
-          <div className="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-[#E50914]/10 rounded-full blur-[220px] pointer-events-none" />
+          {/* Ultra-efficient GPU Radial Ambient Glow (Zero rasterization lag) */}
+          <div
+            className="absolute inset-0 pointer-events-none z-0"
+            style={{
+              background: "radial-gradient(circle at 35% 25%, rgba(229, 9, 20, 0.08) 0%, transparent 65%)",
+            }}
+          />
 
           {/* ========================================================================= */}
           {/* MAIN MENU LINKS: Perfectly fit 100dvh on mobile with ZERO SCROLL NEEDED   */}

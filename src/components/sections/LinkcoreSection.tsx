@@ -47,10 +47,10 @@ export default function LinkcoreSection() {
           <div className="lg:col-span-5 bg-black/60 rounded-2xl p-5 sm:p-6 space-y-4">
             <div className="flex items-center justify-between pb-1">
               <span className="font-condensed text-[10px] text-white/40 tracking-[0.25em] uppercase">
-                AVAILABLE CHANNELS
+                {dict.linkcore.availableChannels}
               </span>
-              <span className="font-condensed text-[10px] text-[#E50914] tracking-widest">
-                HI-RES & LOSSLESS
+              <span className="font-condensed text-[10px] text-[#E50914] tracking-widest uppercase">
+                {dict.linkcore.hiResTag}
               </span>
             </div>
 

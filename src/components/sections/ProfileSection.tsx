@@ -28,7 +28,7 @@ export default function ProfileSection() {
           onClick={toggleLang}
           className="self-start sm:self-auto py-1 text-xs font-condensed tracking-widest text-white/50 hover:text-[#E50914] transition-colors cursor-pointer"
         >
-          {lang === "ja" ? "READ IN ENGLISH ↗" : "日本語で読む ↗"}
+          {dict.profile.toggleLang} ↗
         </button>
       </div>
 
@@ -38,7 +38,7 @@ export default function ProfileSection() {
           <div className="lg:sticky lg:top-28">
             <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl group bg-[#09090c]">
               <Image
-                src="/images/hero-artistic-cover.jpg"
+                src="/images/senna-home.jpeg"
                 alt="Senna portrait"
                 fill
                 sizes="(max-width: 768px) 100vw, 500px"

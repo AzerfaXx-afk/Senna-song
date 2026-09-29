@@ -39,7 +39,7 @@ export default function ContactSection() {
           </h2>
         </div>
         <span className="font-condensed text-xs text-white/40 tracking-widest uppercase">
-          BOOKING, PRESS & COLLABORATIONS
+          {dict.contact.tagline}
         </span>
       </div>
 
@@ -88,7 +88,7 @@ export default function ContactSection() {
                 {dict.contact.locationTitle}
               </span>
               <p className="font-condensed text-xs text-white/60">
-                Minato-ku, Tokyo, Japan
+                {dict.contact.locationValue}
               </p>
             </div>
           </div>
@@ -121,7 +121,7 @@ export default function ContactSection() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="e.g. Jean Dupont"
+                      placeholder={dict.contact.formNamePlaceholder}
                       className="w-full px-4 py-3 rounded-xl bg-white/[0.04] text-white placeholder-white/20 focus:outline-none focus:bg-white/[0.08] font-condensed text-sm transition-colors min-h-[44px]"
                     />
                   </div>
@@ -135,7 +135,7 @@ export default function ContactSection() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="e.g. contact@domain.com"
+                      placeholder={dict.contact.formEmailPlaceholder}
                       className="w-full px-4 py-3 rounded-xl bg-white/[0.04] text-white placeholder-white/20 focus:outline-none focus:bg-white/[0.08] font-condensed text-sm transition-colors min-h-[44px]"
                     />
                   </div>
@@ -165,7 +165,7 @@ export default function ContactSection() {
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Describe your inquiry..."
+                    placeholder={dict.contact.formMessagePlaceholder}
                     className="w-full px-4 py-3 rounded-xl bg-white/[0.04] text-white placeholder-white/20 focus:outline-none focus:bg-white/[0.08] font-sans-jp text-sm transition-colors resize-none font-light"
                   />
                 </div>

@@ -27,7 +27,7 @@ export default function VideoSection() {
           </h2>
         </div>
         <span className="font-condensed text-xs text-white/40 tracking-widest uppercase">
-          OFFICIAL MUSIC VIDEOS & CONCERT FOOTAGE
+          {dict.video.tagline}
         </span>
       </div>
 

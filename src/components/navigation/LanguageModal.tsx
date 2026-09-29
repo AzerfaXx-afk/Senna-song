@@ -5,7 +5,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { WORLD_LANGUAGES, LanguageOption } from "@/data/languages";
 
 export default function LanguageModal() {
-  const { lang, setLanguageCode, isModalOpen, closeLanguageModal } = useLanguage();
+  const { lang, setLanguageCode, isModalOpen, closeLanguageModal, dict } = useLanguage();
   const [searchQuery, setSearchQuery] = useState("");
 
   // Sort alphabetically by English name
@@ -41,10 +41,10 @@ export default function LanguageModal() {
             <div className="w-2.5 h-2.5 rounded-full bg-[#E50914] animate-pulse" />
             <div>
               <h3 className="font-condensed text-base tracking-widest text-white font-bold uppercase">
-                SELECT LANGUAGE / 言語を選択
+                {dict.langModal.title}
               </h3>
               <p className="font-mono text-[10px] text-white/40">
-                {WORLD_LANGUAGES.length} LANGUAGES AVAILABLE
+                {WORLD_LANGUAGES.length} {dict.langModal.countSubtitle}
               </p>
             </div>
           </div>
@@ -65,7 +65,7 @@ export default function LanguageModal() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search language / 言語を検索 (e.g. English, Français, 日本語)..."
+              placeholder={dict.langModal.searchPlaceholder}
               autoFocus
               className="w-full px-4 py-3 pl-10 rounded-2xl bg-white/[0.04] text-white placeholder-white/30 text-xs font-condensed tracking-wider focus:outline-none focus:bg-white/[0.08] transition-colors"
             />
@@ -97,7 +97,7 @@ export default function LanguageModal() {
         <div className="p-6 pt-3 overflow-y-auto flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2">
           {filteredLanguages.length === 0 ? (
             <div className="col-span-2 py-12 text-center text-xs font-mono text-white/40">
-              No language found matching &ldquo;{searchQuery}&rdquo;
+              {dict.langModal.noMatch} &ldquo;{searchQuery}&rdquo;
             </div>
           ) : (
             filteredLanguages.map((item: LanguageOption) => {

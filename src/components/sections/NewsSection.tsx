@@ -165,7 +165,7 @@ export default function NewsSection() {
 
             <div className="pt-4 flex items-center justify-between">
               <span className="font-condensed text-[10px] text-white/40 tracking-widest uppercase">
-                SENNA OFFICIAL PRESS RELEASE
+                {dict.news.officialPress}
               </span>
               <button
                 onClick={() => {
@@ -177,7 +177,7 @@ export default function NewsSection() {
                     }).catch(() => {});
                   } else {
                     navigator.clipboard.writeText(window.location.href);
-                    alert("Link copied to clipboard!");
+                    alert(dict.news.linkCopied);
                   }
                 }}
                 className="px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-white font-condensed text-xs tracking-wider transition-colors cursor-pointer"

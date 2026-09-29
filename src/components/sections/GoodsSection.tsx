@@ -33,7 +33,7 @@ export default function GoodsSection() {
           </h2>
         </div>
         <span className="font-condensed text-xs text-white/40 tracking-widest uppercase">
-          SENNA OFFICIAL CAPSULE COLLECTION & VINYL
+          {dict.goods.tagline}
         </span>
       </div>
 
@@ -91,7 +91,7 @@ export default function GoodsSection() {
                     ¥{item.priceJPY.toLocaleString()}
                   </span>
                   <span className="font-condensed text-xs text-white/40">
-                    (approx. €{item.priceEUR})
+                    ({dict.goods.approx} €{item.priceEUR})
                   </span>
                 </div>
 
@@ -150,7 +150,7 @@ export default function GoodsSection() {
 
               <div className="pt-4 flex gap-4">
                 <button
-                  onClick={() => alert("Store checkout will be linked to official base/shopify store.")}
+                  onClick={() => alert(dict.goods.storeAlert)}
                   className="flex-1 py-3.5 rounded-full bg-[#E50914] hover:bg-[#d01025] text-white font-condensed text-xs tracking-[0.2em] uppercase font-semibold transition-colors cursor-pointer min-h-[44px]"
                 >
                   {dict.goods.orderNow}
