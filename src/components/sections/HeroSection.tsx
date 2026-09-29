@@ -73,7 +73,7 @@ export default function HeroSection() {
           priority
           unoptimized
           sizes="100vw"
-          className="object-cover object-[center_16%] sm:object-[center_10%] filter contrast-[1.03] brightness-[0.99]"
+          className="object-cover object-[center_25%] sm:object-[center_20%] filter contrast-[1.02] brightness-[1.0]"
         />
 
         {/* Soft bottom blend into next section */}
