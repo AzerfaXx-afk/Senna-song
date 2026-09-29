@@ -198,7 +198,7 @@ export default function CurtainMenu({ isOpen, onClose }: CurtainMenuProps) {
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="fixed inset-0 z-40 bg-[#050505] flex flex-col justify-between overflow-hidden select-none transform-gpu will-change-transform pt-14 sm:pt-20 md:pt-24 pb-12 sm:pb-16 md:pb-20 px-5 sm:px-10 md:px-14 lg:px-20 xl:px-24 h-[100dvh] w-screen"
+          className="fixed inset-0 z-40 bg-[#050505] flex flex-col justify-between overflow-hidden select-none transform-gpu will-change-transform pt-24 sm:pt-28 md:pt-32 pb-24 sm:pb-28 md:pb-32 px-5 sm:px-10 md:px-14 lg:px-20 xl:px-24 h-[100dvh] w-screen"
           role="dialog"
           aria-modal="true"
           aria-label="Navigation Menu"
@@ -236,14 +236,14 @@ export default function CurtainMenu({ isOpen, onClose }: CurtainMenuProps) {
           {/* ========================================================================= */}
           <div
             data-menu-scroll="true"
-            className="relative z-30 max-w-7xl mx-auto w-full my-auto flex flex-col justify-center h-full max-h-[calc(100dvh-100px)] sm:max-h-none"
+            className="relative z-30 max-w-7xl mx-auto w-full my-auto flex flex-col justify-center h-full max-h-[calc(100dvh-180px)] sm:max-h-[calc(100dvh-200px)]"
           >
             <motion.ul
               variants={listContainerVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="w-full flex flex-col justify-evenly h-full max-h-[85vh] sm:max-h-none divide-y divide-white/[0.04]"
+              className="w-full flex flex-col justify-evenly h-full max-h-full divide-y divide-white/[0.04]"
             >
               {menuItems.map((item, index) => {
                 const isHovered = hoveredIndex === index;

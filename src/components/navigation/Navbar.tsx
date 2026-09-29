@@ -297,50 +297,53 @@ export default function Navbar({ onOpenMenu, isMenuOpen }: NavbarProps) {
         {/* FAR RIGHT: Signature Crimson Bars + Vertical MENU Label          */}
         {/* ================================================================= */}
         <div className="flex-1 flex justify-end items-center pointer-events-auto">
-          <button
-            onClick={onOpenMenu}
-            className="group relative flex items-center gap-2.5 p-0 cursor-pointer focus:outline-none select-none"
-            aria-label={isMenuOpen ? (dict.nav?.close || "Close Navigation Menu") : (dict.nav?.menu || "Open Navigation Menu")}
-          >
-            {/* Fixed 24x24 Icon Box (Zero layout shift between 3 bars and X close) */}
-            <div className="w-6 h-6 flex items-center justify-end relative">
-              {/* Bar 1 (Top / Diagonal 1) */}
-              <span
-                className={`absolute h-[1.5px] bg-[#E50914] transition-all duration-300 origin-center ${
-                  isMenuOpen
-                    ? "w-5 rotate-45 top-[11.25px] right-0.5"
-                    : "w-4 top-[5px] right-0"
-                }`}
-              />
+          <div className="flex items-center gap-2.5">
+            {/* Interactive Button: ONLY the Signature Crimson Bars */}
+            <button
+              onClick={onOpenMenu}
+              className="group relative w-7 h-7 flex items-center justify-center cursor-pointer focus:outline-none select-none transition-transform duration-200 active:scale-90"
+              aria-label={isMenuOpen ? (dict.nav?.close || "Close Menu") : (dict.nav?.menu || "Open Menu")}
+            >
+              {/* Fixed 24x24 Icon Box (Zero layout shift between 3 bars and X close) */}
+              <div className="w-6 h-6 flex items-center justify-end relative">
+                {/* Bar 1 (Top / Diagonal 1) */}
+                <span
+                  className={`absolute h-[1.5px] bg-[#E50914] transition-all duration-300 origin-center group-hover:drop-shadow-[0_0_8px_rgba(229,9,20,0.8)] ${
+                    isMenuOpen
+                      ? "w-5 rotate-45 top-[11.25px] right-0.5"
+                      : "w-4 top-[5px] right-0 group-hover:w-5"
+                  }`}
+                />
 
-              {/* Bar 2 (Middle - disappears smoothly in X mode) */}
-              <span
-                className={`absolute h-[1.5px] bg-[#E50914] transition-all duration-300 right-0 top-[11.25px] ${
-                  isMenuOpen ? "w-0 opacity-0" : "w-6 opacity-100"
-                }`}
-              />
+                {/* Bar 2 (Middle - disappears smoothly in X mode) */}
+                <span
+                  className={`absolute h-[1.5px] bg-[#E50914] transition-all duration-300 right-0 top-[11.25px] group-hover:drop-shadow-[0_0_8px_rgba(229,9,20,0.8)] ${
+                    isMenuOpen ? "w-0 opacity-0" : "w-6 opacity-100"
+                  }`}
+                />
 
-              {/* Bar 3 (Bottom / Diagonal 2) */}
-              <span
-                className={`absolute h-[1.5px] bg-[#E50914] transition-all duration-300 origin-center ${
-                  isMenuOpen
-                    ? "w-5 -rotate-45 top-[11.25px] right-0.5"
-                    : "w-3 top-[17.5px] right-0"
-                }`}
-              />
-            </div>
+                {/* Bar 3 (Bottom / Diagonal 2) */}
+                <span
+                  className={`absolute h-[1.5px] bg-[#E50914] transition-all duration-300 origin-center group-hover:drop-shadow-[0_0_8px_rgba(229,9,20,0.8)] ${
+                    isMenuOpen
+                      ? "w-5 -rotate-45 top-[11.25px] right-0.5"
+                      : "w-3 top-[17.5px] right-0 group-hover:w-4"
+                  }`}
+                />
+              </div>
+            </button>
 
-            {/* Vertical MENU/CLOSE label (Pure SECTIONS styling, NO hover animation, fixed container) */}
-            <div className="w-4 h-16 flex items-center justify-center select-none overflow-visible">
-              <span className="font-condensed text-[10px] tracking-[0.4em] uppercase text-white/30 [writing-mode:vertical-rl] font-semibold select-none">
+            {/* Vertical MENU label (Pure SECTIONS styling, non-interactive, NO hover animation, fixed container) */}
+            <div className="w-4 h-16 flex items-center justify-center select-none pointer-events-none">
+              <span className="font-condensed text-[10px] tracking-[0.4em] uppercase text-white/30 [writing-mode:vertical-rl] font-semibold select-none pointer-events-none">
                 <ScrambleText
-                  text={isMenuOpen ? (dict.nav?.close || "CLOSE") : (dict.nav?.menu || "MENU")}
+                  text="MENU"
                   duration={2000}
                   delay={150}
                 />
               </span>
             </div>
-          </button>
+          </div>
         </div>
       </div>
     </motion.header>
