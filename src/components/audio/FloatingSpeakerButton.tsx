@@ -16,30 +16,30 @@ export default function FloatingSpeakerButton() {
   };
 
   return (
-    <div className="fixed bottom-5 sm:bottom-6 right-5 sm:right-6 z-50 select-none flex items-center gap-2.5">
+    <div className="fixed bottom-6 sm:bottom-8 right-6 sm:right-10 lg:right-14 z-50 select-none flex items-center gap-2.5">
       {/* 
-        1. Beautiful Speaker Icon: on mobile, refined pill with sound waves; on desktop, minimalist
+        1. Beautiful Speaker Icon: Identical circular size and luxury styling as Download Button
       */}
       <motion.button
         onClick={handleClick}
         animate={
           isJumping
             ? {
-                y: [0, -10, 2, -3, 0],
-                scale: [1, 1.25, 0.9, 1.05, 1],
+                y: [0, -6, 2, -1, 0],
+                scale: [1, 1.15, 0.95, 1.02, 1],
               }
             : { y: 0, scale: 1 }
         }
-        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         onAnimationComplete={() => setIsJumping(false)}
-        whileHover={{ scale: 1.12 }}
-        whileTap={{ scale: 0.9 }}
-        className="group relative w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-[#0a0a0d]/85 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none border border-white/15 sm:border-0 shadow-xl sm:shadow-none cursor-pointer select-none outline-none text-white/80 hover:text-[#E50914] transition-colors duration-200 flex items-center justify-center"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.92 }}
+        className="group relative w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#121216] sm:hover:bg-[#E50914] border border-white/12 sm:hover:border-[#E50914] shadow-[0_4px_16px_rgba(0,0,0,0.45)] sm:hover:shadow-[0_0_25px_rgba(229,9,20,0.65)] transition-all duration-300 cursor-pointer select-none outline-none text-white flex items-center justify-center"
         aria-label={isPlaying ? (dict.sound?.mute || "Mute Audio") : (dict.sound?.play || "Play Audio")}
       >
         {isPlaying ? (
           <svg
-            className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:text-[#E50914] transition-colors"
+            className="w-5 h-5 text-white transition-colors"
             viewBox="0 0 24 24"
             fill="currentColor"
           >

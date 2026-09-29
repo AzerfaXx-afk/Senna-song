@@ -3,7 +3,6 @@
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import SocialIcons from "@/components/ui/SocialIcons";
-import ScrambleText from "@/components/common/ScrambleText";
 
 export default function Footer() {
   const { lang, dict } = useLanguage();
@@ -106,7 +105,7 @@ export default function Footer() {
         {/* Monumental SENNA Typography */}
         <div className="text-center select-none py-4 sm:py-6">
           <div className="font-bebas text-[18vw] leading-none tracking-normal text-transparent bg-clip-text bg-gradient-to-b from-white/15 via-white/5 to-transparent">
-            <ScrambleText text="SENNA" duration={1200} hoverScramble={true} />
+            SENNA
           </div>
           <div className="font-serif-jp text-xs sm:text-sm tracking-[1.2em] text-white/20 -mt-2 sm:-mt-6">
             千奈 • TOKYO

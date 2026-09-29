@@ -96,12 +96,12 @@ export default function PwaManager() {
     }
   };
 
-  const getSubLabel = () => {
-    if (lang === "ja") return "公式アプリをインストール";
+  const getTooltipLabel = () => {
+    if (lang === "ja") return "公式アプリをダウンロード";
     if (lang === "fr") return "INSTALLER L'APPLI";
-    if (lang === "es") return "INSTALAR APP OFICIAL";
-    if (lang === "de") return "OFFIZIELLE APP INSTALLIEREN";
-    return "INSTALL OFFICIAL APP";
+    if (lang === "es") return "DESCARGAR APP";
+    if (lang === "de") return "APP HERUNTERLADEN";
+    return "DOWNLOAD APP";
   };
 
   if (!isMounted || isStandalone || isDismissed) return null;
@@ -109,57 +109,148 @@ export default function PwaManager() {
   return (
     <>
       {/* ========================================================================= */}
-      {/* AWWWARDS-GRADE LUXURY RED PWA INSTALL PILL (FLOATING BOTTOM-LEFT)        */}
+      {/* SENNA AWWWARDS CIRCULAR DOWNLOAD BUTTON (FLOATING BOTTOM-LEFT)           */}
       {/* ========================================================================= */}
       <aside
-        aria-label="Install Senna Official Application"
-        className="fixed bottom-5 sm:bottom-6 left-5 sm:left-6 z-50 select-none"
+        aria-label="Download Senna Official App"
+        className="senna-download-wrapper fixed bottom-6 sm:bottom-8 left-6 sm:left-10 lg:left-14 z-50 select-none"
       >
-        <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="group relative flex items-center bg-[#0a0a0d]/90 hover:bg-[#121217] backdrop-blur-xl border border-white/15 hover:border-[#E50914] rounded-full shadow-2xl transition-all duration-300 p-1 pr-3.5 cursor-pointer active:scale-95"
+        <button
+          className="Btn"
           onClick={handleInstallClick}
+          aria-label={getTooltipLabel()}
         >
-          {/* Glowing Red Ambient Halo on Hover */}
-          <div className="absolute inset-0 rounded-full bg-[#E50914]/0 group-hover:bg-[#E50914]/10 transition-colors pointer-events-none" />
-
-          {/* Red Awwwards Emblem Badge (W.) */}
-          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#E50914] text-white flex items-center justify-center font-black text-xs sm:text-sm tracking-tight shadow-[0_0_12px_rgba(229,9,20,0.6)] shrink-0">
-            W.
-          </div>
-
-          {/* Text Content */}
-          <div className="flex flex-col ml-2.5 mr-2 text-left">
-            <span className="text-[8px] sm:text-[9px] font-mono tracking-widest text-[#8E8E93] uppercase leading-none">
-              AWWWARDS PWA
-            </span>
-            <span className="text-[11px] sm:text-xs font-condensed tracking-wider font-bold text-white group-hover:text-[#E50914] transition-colors leading-tight mt-0.5">
-              {getSubLabel()}
-            </span>
-          </div>
-
-          {/* Install Arrow with subtle animated ping */}
-          <div className="flex items-center gap-1 pl-1">
-            <span className="text-white/60 group-hover:text-white transition-colors text-xs font-mono">
-              ↓
-            </span>
-          </div>
-
-          {/* Dismiss ✕ Button */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsDismissed(true);
-            }}
-            className="ml-2 w-4 h-4 rounded-full text-white/30 hover:text-white text-[10px] flex items-center justify-center transition-colors cursor-pointer"
-            aria-label="Dismiss install button"
+          <svg
+            className="svgIcon"
+            viewBox="0 0 384 512"
+            height="1em"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            ✕
-          </button>
-        </motion.div>
+            <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+          </svg>
+          <span className="icon2" />
+          <span className="tooltip">{getTooltipLabel()}</span>
+        </button>
+
+        <style jsx>{`
+          .Btn {
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 50%;
+            background-color: #121216;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            outline: none;
+          }
+
+          @media (min-width: 640px) {
+            .Btn {
+              width: 48px;
+              height: 48px;
+            }
+          }
+
+          .svgIcon {
+            font-size: 16px;
+            fill: #E50914;
+            margin-bottom: 2px;
+            transition: fill 0.3s ease;
+          }
+
+          .icon2 {
+            width: 18px;
+            height: 5px;
+            border-bottom: 2px solid #E50914;
+            border-left: 2px solid #E50914;
+            border-right: 2px solid #E50914;
+            border-radius: 0 0 2px 2px;
+            transition: border-color 0.3s ease;
+          }
+
+          .tooltip {
+            position: absolute;
+            left: calc(100% + 14px);
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            background-color: #0c0c0e;
+            color: #ffffff;
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: inherit;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+            pointer-events: none;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+          }
+
+          .tooltip::before {
+            position: absolute;
+            content: "";
+            width: 8px;
+            height: 8px;
+            background-color: #0c0c0e;
+            border-left: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            transform: rotate(45deg);
+            left: -5px;
+            top: calc(50% - 4px);
+          }
+
+          @media (hover: hover) and (pointer: fine) {
+            .Btn:hover {
+              background-color: #E50914;
+              border-color: #E50914;
+              box-shadow: 0 0 25px rgba(229, 9, 20, 0.65), 0 4px 15px rgba(0, 0, 0, 0.4);
+            }
+
+            .Btn:hover .tooltip {
+              opacity: 1;
+              transform: translateY(-50%) translateX(2px);
+            }
+
+            .Btn:hover .icon2 {
+              border-bottom: 2px solid #ffffff;
+              border-left: 2px solid #ffffff;
+              border-right: 2px solid #ffffff;
+            }
+
+            .Btn:hover .svgIcon {
+              fill: #ffffff;
+              animation: slide-in-top 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+            }
+          }
+
+          .Btn:active {
+            transform: scale(0.92);
+          }
+
+          @keyframes slide-in-top {
+            0% {
+              transform: translateY(-8px);
+              opacity: 0;
+            }
+            100% {
+              transform: translateY(0px);
+              opacity: 1;
+            }
+          }
+        `}</style>
       </aside>
 
       {/* ========================================================================= */}

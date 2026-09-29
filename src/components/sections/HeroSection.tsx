@@ -55,7 +55,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-[92vh] sm:min-h-screen w-full bg-[#050505] text-white overflow-hidden flex flex-col justify-end pt-24 pb-8 sm:pb-12 px-6 sm:px-10 md:px-14 lg:px-16 select-none">
+    <section className="relative min-h-[92vh] sm:min-h-screen w-full bg-[#050505] text-white overflow-hidden flex flex-col justify-end pt-24 pb-20 sm:pb-24 px-6 sm:px-10 lg:px-14 select-none">
       {/* ========================================================================= */}
       {/* TRUE 4K ULTRA-HIGH DEFINITION ARTISTIC BACKGROUND (UNOPTIMIZED DIRECT 4K) */}
       {/* ========================================================================= */}
@@ -104,8 +104,7 @@ export default function HeroSection() {
                 <span className="font-bebas text-2xl sm:text-3xl lg:text-4xl text-white tracking-normal group-hover:text-[#E50914] transition-colors duration-300 drop-shadow-md">
                   <ScrambleText
                     text={sec.en}
-                    duration={800 + index * 180}
-                    hoverScramble={true}
+                    duration={450 + index * 80}
                   />
                 </span>
                 {/* Artistic animated underline (expands smoothly from right on hover) */}
@@ -133,15 +132,14 @@ export default function HeroSection() {
       {/* ========================================================================= */}
       <div className="relative z-20 max-w-xl pb-3 sm:pb-8 space-y-1.5">
         <div className="font-condensed text-[10px] tracking-[0.4em] text-[#E50914] uppercase font-semibold">
-          <ScrambleText text={dict.hero.badge} duration={900} hoverScramble={true} />
+          <ScrambleText text={dict.hero.badge} duration={480} />
         </div>
 
         <div className="flex items-baseline gap-3 sm:gap-5">
           <h1 className="font-bebas text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] tracking-tight text-white leading-[0.88] drop-shadow-2xl">
             <ScrambleText
               text="SENNA"
-              duration={1300}
-              hoverScramble={true}
+              duration={650}
               glyphs="0123456789センナ千奈ECLIPSE808TOKYO#$!%*~+"
             />
           </h1>

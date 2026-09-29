@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 
 const DEFAULT_GLYPHS =
-  "0123456789アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&@*+/<>[]{}~_=";
+  "0123456789アイウエオカキクケコサシスセソタチツテトナニヌネノSENNA808ECLIPSE#$*+/<>[]~";
 
 interface ScrambleTextProps {
   text: string;
@@ -12,68 +12,68 @@ interface ScrambleTextProps {
   glyphs?: string;
   className?: string;
   as?: "span" | "h1" | "h2" | "h3" | "h4" | "p" | "div";
-  trigger?: boolean | number | string;
   autoStart?: boolean;
-  hoverScramble?: boolean;
   onComplete?: () => void;
 }
 
 export default function ScrambleText({
   text,
-  duration = 900,
-  scrambleSpeed = 30,
+  duration = 550,
+  scrambleSpeed = 20,
   glyphs = DEFAULT_GLYPHS,
   className = "",
   as: Component = "span",
-  trigger,
   autoStart = true,
-  hoverScramble = false,
   onComplete,
 }: ScrambleTextProps) {
   const [displayText, setDisplayText] = useState<string>(text);
-  const isScramblingRef = useRef(false);
-  const frameRef = useRef<NodeJS.Timeout | null>(null);
+  const frameRef = useRef<number | null>(null);
+  const hasAnimatedRef = useRef(false);
 
   const startScramble = useCallback(() => {
-    if (!text) return;
-    if (frameRef.current) clearInterval(frameRef.current);
+    if (!text || hasAnimatedRef.current) return;
+    hasAnimatedRef.current = true;
 
-    isScramblingRef.current = true;
-    const startTime = Date.now();
+    const startTime = performance.now();
     const length = text.length;
+    let lastUpdate = 0;
 
-    frameRef.current = setInterval(() => {
-      const elapsed = Date.now() - startTime;
+    const updateFrame = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
 
-      // Characters resolved from left to right with slight organic noise
-      const resolvedCount = Math.floor(progress * length);
+      // Only re-generate scrambled characters at scrambleSpeed intervals for visual clarity
+      if (currentTime - lastUpdate >= scrambleSpeed || progress >= 1) {
+        lastUpdate = currentTime;
+        const resolvedCount = Math.floor(progress * length);
 
-      let scrambled = "";
-      for (let i = 0; i < length; i++) {
-        const char = text[i];
-        if (char === " " || char === "\n" || char === "\t") {
-          scrambled += char;
-        } else if (i < resolvedCount) {
-          scrambled += char;
-        } else {
-          const randomGlyph = glyphs[Math.floor(Math.random() * glyphs.length)];
-          scrambled += randomGlyph;
+        let scrambled = "";
+        for (let i = 0; i < length; i++) {
+          const char = text[i];
+          if (char === " " || char === "\n" || char === "\t") {
+            scrambled += char;
+          } else if (i < resolvedCount) {
+            scrambled += char;
+          } else {
+            const randomGlyph = glyphs[Math.floor(Math.random() * glyphs.length)];
+            scrambled += randomGlyph;
+          }
         }
+
+        setDisplayText(scrambled);
       }
 
-      setDisplayText(scrambled);
-
-      if (progress >= 1) {
-        if (frameRef.current) clearInterval(frameRef.current);
+      if (progress < 1) {
+        frameRef.current = requestAnimationFrame(updateFrame);
+      } else {
         setDisplayText(text);
-        isScramblingRef.current = false;
         onComplete?.();
       }
-    }, scrambleSpeed);
+    };
+
+    frameRef.current = requestAnimationFrame(updateFrame);
   }, [text, duration, scrambleSpeed, glyphs, onComplete]);
 
-  // Trigger when text changes or trigger prop changes
   useEffect(() => {
     if (autoStart) {
       startScramble();
@@ -81,23 +81,16 @@ export default function ScrambleText({
       setDisplayText(text);
     }
     return () => {
-      if (frameRef.current) clearInterval(frameRef.current);
+      if (frameRef.current !== null) {
+        cancelAnimationFrame(frameRef.current);
+      }
     };
-  }, [text, trigger, autoStart, startScramble]);
-
-  const handleMouseEnter = () => {
-    if (hoverScramble && !isScramblingRef.current) {
-      startScramble();
-    }
-  };
+  }, [text, autoStart, startScramble]);
 
   return (
-    <Component
-      className={`inline-block select-none ${className}`}
-      onMouseEnter={handleMouseEnter}
-      aria-label={text}
-    >
+    <Component className={`inline-block select-none ${className}`} aria-label={text}>
       {displayText}
     </Component>
   );
 }
+

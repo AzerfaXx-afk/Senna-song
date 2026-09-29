@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { siteData, MerchItem } from "@/data/siteData";
-import ScrambleText from "@/components/common/ScrambleText";
 
 export default function GoodsSection() {
   const { dict, t } = useLanguage();
@@ -27,7 +26,7 @@ export default function GoodsSection() {
             {dict.goods.sectionNum} / {dict.goods.badge}
           </span>
           <h2 className="font-bebas text-4xl sm:text-6xl text-white tracking-normal">
-            <ScrambleText text={dict.goods.title} duration={850} hoverScramble={true} />{" "}
+            {dict.goods.title}{" "}
             <span className="font-serif-jp text-lg sm:text-2xl text-white/40 ml-2 font-normal">
               {dict.goods.subtitle}
             </span>

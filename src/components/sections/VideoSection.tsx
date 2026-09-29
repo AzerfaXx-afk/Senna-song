@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { siteData, VideoItem } from "@/data/siteData";
-import ScrambleText from "@/components/common/ScrambleText";
 
 export default function VideoSection() {
   const { dict, t } = useLanguage();
@@ -21,7 +20,7 @@ export default function VideoSection() {
             {dict.video.sectionNum} / {dict.video.badge}
           </span>
           <h2 className="font-bebas text-4xl sm:text-6xl text-white tracking-normal">
-            <ScrambleText text={dict.video.title} duration={850} hoverScramble={true} />{" "}
+            {dict.video.title}{" "}
             <span className="font-serif-jp text-lg sm:text-2xl text-white/40 ml-2 font-normal">
               {dict.video.subtitle}
             </span>

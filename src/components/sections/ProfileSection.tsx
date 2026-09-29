@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { siteData } from "@/data/siteData";
-import ScrambleText from "@/components/common/ScrambleText";
 
 export default function ProfileSection() {
   const { lang, dict, t, toggleLang } = useLanguage();
@@ -18,7 +17,7 @@ export default function ProfileSection() {
             {dict.profile.sectionNum} / {dict.profile.badge}
           </span>
           <h2 className="font-bebas text-4xl sm:text-6xl text-white tracking-normal">
-            <ScrambleText text={dict.profile.title} duration={850} hoverScramble={true} />{" "}
+            {dict.profile.title}{" "}
             <span className="font-serif-jp text-lg sm:text-2xl text-white/40 ml-2 font-normal">
               {dict.profile.subtitle}
             </span>

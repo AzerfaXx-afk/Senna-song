@@ -132,10 +132,10 @@ export default function Navbar({ onOpenMenu, isMenuOpen }: NavbarProps) {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full px-6 sm:px-10 md:px-14 lg:px-16 py-6 sm:py-7 bg-transparent pointer-events-none select-none">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full px-6 sm:px-10 lg:px-14 py-6 sm:py-8 bg-transparent pointer-events-none select-none">
       <div className="w-full flex items-center justify-between">
         {/* ================================================================= */}
-        {/* FAR LEFT: Language Selector (Smooth Fondu: FR -> Français)         */}
+        {/* FAR LEFT: Language Selector (Cohesive Luxury Pill Aligned with Download) */}
         {/* ================================================================= */}
         <div className="flex-1 flex justify-start items-center relative pointer-events-auto" ref={dropdownRef}>
           <button
@@ -149,23 +149,15 @@ export default function Navbar({ onOpenMenu, isMenuOpen }: NavbarProps) {
                 win.lenis?.start();
               }
             }}
-            className="group relative inline-flex items-center cursor-pointer focus:outline-none select-none py-1.5"
+            className="group relative flex items-center gap-2 h-10 px-3.5 rounded-full bg-[#121216]/85 hover:bg-[#1a1a20] border border-white/12 hover:border-[#E50914] backdrop-blur-md transition-all duration-300 cursor-pointer focus:outline-none select-none active:scale-95 shadow-[0_4px_16px_rgba(0,0,0,0.45)]"
             aria-label="Choose Language"
             aria-expanded={isDropdownOpen}
           >
-            {/* Invisible spacer: guarantees rock-solid width without any layout jitter */}
-            <span className="invisible pointer-events-none font-serif-jp text-xs tracking-wider whitespace-nowrap select-none pr-1">
-              {currentLanguage.nativeName}
-            </span>
-
-            {/* Resting state: Initials (e.g. FR), smooth fondu out on hover */}
-            <span className="absolute left-0 font-condensed text-xs uppercase tracking-[0.25em] font-bold text-white/90 group-hover:opacity-0 transition-opacity duration-300 ease-out whitespace-nowrap">
+            <span className="font-condensed text-xs uppercase tracking-[0.2em] font-bold text-white group-hover:text-[#E50914] transition-colors">
               {currentLanguage.code.toUpperCase()}
             </span>
-
-            {/* Hover state: Pure fondu to direct native language name in crimson (e.g. Français) */}
-            <span className="absolute left-0 font-serif-jp text-xs tracking-wider font-semibold text-[#E50914] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out whitespace-nowrap">
-              {currentLanguage.nativeName}
+            <span className="text-[10px] text-white/40 group-hover:text-[#E50914] transition-transform duration-300 group-hover:translate-y-0.5">
+              ▾
             </span>
           </button>
 
@@ -180,7 +172,7 @@ export default function Navbar({ onOpenMenu, isMenuOpen }: NavbarProps) {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -6, scale: 0.98 }}
                 transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute top-full left-0 mt-3 z-50 w-72 bg-[#09090c]/98 backdrop-blur-3xl rounded-2xl p-3 shadow-2xl shadow-black select-none"
+                className="absolute top-full left-0 mt-3 z-50 w-72 bg-[#09090c]/98 backdrop-blur-3xl rounded-2xl p-3 shadow-2xl shadow-black select-none border border-white/12"
               >
                 {/* Compact Search Input */}
                 <div className="relative mb-2">
@@ -288,45 +280,44 @@ export default function Navbar({ onOpenMenu, isMenuOpen }: NavbarProps) {
         </div>
 
         {/* ================================================================= */}
-        {/* FAR RIGHT: 3-Bar Animated Menu Button with Vertical MENU Label    */}
+        {/* FAR RIGHT: Animated Menu Button Aligned with Sound               */}
         {/* ================================================================= */}
         <div className="flex-1 flex justify-end items-center pointer-events-auto">
           <button
             onClick={onOpenMenu}
-            className="group relative p-2 flex items-center gap-2.5 cursor-pointer focus:outline-none select-none"
+            className="group relative h-10 px-3.5 rounded-full bg-[#121216]/85 hover:bg-[#1a1a20] border border-white/12 hover:border-[#E50914] backdrop-blur-md transition-all duration-300 flex items-center gap-2.5 cursor-pointer focus:outline-none select-none active:scale-95 shadow-[0_4px_16px_rgba(0,0,0,0.45)]"
             aria-label={isMenuOpen ? (dict.nav?.close || "Close Navigation Menu") : (dict.nav?.menu || "Open Navigation Menu")}
           >
-            <div className="flex flex-col justify-center items-end gap-[5.5px]">
+            <div className="flex flex-col justify-center items-end gap-[4.5px]">
               {/* Bar 1 (Top) */}
               <span
-                className={`h-[1.5px] bg-white transition-all duration-500 ease-[0.76,0,0.24,1] origin-center ${
+                className={`h-[1.5px] bg-white transition-all duration-300 origin-center ${
                   isMenuOpen
-                    ? "w-6 rotate-45 translate-y-[7px] bg-[#E50914]"
-                    : "w-6 group-hover:w-4 group-hover:bg-[#E50914]"
+                    ? "w-4 rotate-45 translate-y-[6px] bg-[#E50914]"
+                    : "w-4 group-hover:w-4.5 group-hover:bg-[#E50914]"
                 }`}
               />
 
               {/* Bar 2 (Middle) */}
               <span
-                className={`h-[1.5px] bg-white transition-all duration-500 ease-[0.76,0,0.24,1] ${
+                className={`h-[1.5px] bg-white transition-all duration-300 ${
                   isMenuOpen
-                    ? "w-0 opacity-0 scale-x-0"
-                    : "w-4 group-hover:w-6 group-hover:bg-[#E50914]"
+                    ? "w-0 opacity-0"
+                    : "w-2.5 group-hover:w-4.5 group-hover:bg-[#E50914]"
                 }`}
               />
 
               {/* Bar 3 (Bottom) */}
               <span
-                className={`h-[1.5px] bg-white transition-all duration-500 ease-[0.76,0,0.24,1] origin-center ${
+                className={`h-[1.5px] bg-white transition-all duration-300 origin-center ${
                   isMenuOpen
-                    ? "w-6 -rotate-45 -translate-y-[7px] bg-[#E50914]"
-                    : "w-5 group-hover:w-3 group-hover:bg-[#E50914]"
+                    ? "w-4 -rotate-45 -translate-y-[6px] bg-[#E50914]"
+                    : "w-3.5 group-hover:w-4.5 group-hover:bg-[#E50914]"
                 }`}
               />
             </div>
 
-            {/* Vertical MENU/CLOSE label on the RIGHT of the bars (Stays clean neutral white/35 like CONTENTS) */}
-            <span className="font-condensed text-[10px] tracking-[0.4em] uppercase text-white/35 [writing-mode:vertical-rl] select-none hidden sm:inline-block font-semibold">
+            <span className="font-condensed text-[11px] tracking-[0.2em] uppercase text-white/85 group-hover:text-white transition-colors font-bold">
               {isMenuOpen ? (dict.nav?.close || "CLOSE") : (dict.nav?.menu || "MENU")}
             </span>
           </button>
