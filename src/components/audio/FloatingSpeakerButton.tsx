@@ -32,14 +32,14 @@ export default function FloatingSpeakerButton() {
         }
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         onAnimationComplete={() => setIsJumping(false)}
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.92 }}
-        className="group relative w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#121216] sm:hover:bg-[#E50914] border border-white/12 sm:hover:border-[#E50914] shadow-[0_4px_16px_rgba(0,0,0,0.45)] sm:hover:shadow-[0_0_25px_rgba(229,9,20,0.65)] transition-all duration-300 cursor-pointer select-none outline-none text-white flex items-center justify-center"
+        className="group relative p-2 cursor-pointer select-none outline-none text-white/80 hover:text-[#E50914] transition-colors duration-200 flex items-center justify-center bg-transparent border-0 shadow-none"
         aria-label={isPlaying ? (dict.sound?.mute || "Mute Audio") : (dict.sound?.play || "Play Audio")}
       >
         {isPlaying ? (
           <svg
-            className="w-5 h-5 text-white transition-colors"
+            className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:text-[#E50914] transition-colors"
             viewBox="0 0 24 24"
             fill="currentColor"
           >
