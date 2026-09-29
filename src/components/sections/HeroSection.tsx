@@ -166,15 +166,15 @@ export default function HeroSection() {
               text="SENNA"
               duration={1500}
               delay={120}
-              glyphs="0123456789センナ千奈ECLIPSE808TOKYO#$!%*~+"
+              glyphs="0123456789センナ仙奈ECLIPSE808TOKYO#$!%*~+"
             />
           </h1>
           <span className="font-serif-jp text-lg sm:text-2xl md:text-3xl text-white/40 font-normal">
             <ScrambleText
-              text="千奈"
+              text="仙奈"
               duration={1500}
               delay={150}
-              glyphs="千奈センナ東京0123456789"
+              glyphs="仙奈センナ東京0123456789"
             />
           </span>
         </div>

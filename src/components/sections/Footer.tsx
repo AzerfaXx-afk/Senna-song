@@ -108,7 +108,7 @@ export default function Footer() {
             SENNA
           </div>
           <div className="font-serif-jp text-xs sm:text-sm tracking-[1.2em] text-white/20 -mt-2 sm:-mt-6">
-            千奈 • TOKYO
+            仙奈 • TOKYO
           </div>
         </div>
 

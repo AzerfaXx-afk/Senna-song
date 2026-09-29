@@ -70,7 +70,7 @@ export interface Milestone {
 export const siteData = {
   artist: {
     name: "SENNA",
-    japaneseName: "千奈",
+    japaneseName: "仙奈",
     role: {
       ja: "シンガー / ソングライター / パフォーマー",
       en: "Singer / Songwriter / Live Performer",

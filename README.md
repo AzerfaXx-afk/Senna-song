@@ -1,6 +1,6 @@
 # Senna-song — Official Artist Web App & PWA
 
-> **千奈 (SENNA)** — Official Awwwards-grade responsive web application and Progressive Web App for Japanese singer, songwriter, and live performer SENNA.
+> **仙奈 (SENNA)** — Official Awwwards-grade responsive web application and Progressive Web App for Japanese singer, songwriter, and live performer SENNA.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.3-black?style=flat&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
@@ -100,4 +100,4 @@ npm run start
 ## 📜 License & Copyright
 
 © 2026 **SENNA MUSIC ENTERTAINMENT / TOKYO**. All Rights Reserved.
-Produced for artist **SENNA (千奈)**.
+Produced for artist **SENNA (仙奈)**.

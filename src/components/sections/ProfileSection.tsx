@@ -54,7 +54,7 @@ export default function ProfileSection() {
                   SENNA
                 </span>
                 <span className="font-serif-jp text-xs text-white/50 ml-2">
-                  千奈 • TOKYO
+                  仙奈 • TOKYO
                 </span>
               </div>
             </div>

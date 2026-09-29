@@ -6,7 +6,7 @@ import SmoothScroll from "@/components/common/SmoothScroll";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://senna-official.com"),
-  title: "SENNA | 千奈 OFFICIAL WEBSITE",
+  title: "SENNA | 仙奈 OFFICIAL WEBSITE",
   description:
     "Official website of Japanese artist and singer SENNA. Discover latest news, tour dates, album 'ECLIPSE', official music videos, and merchandise.",
   manifest: "/manifest.json",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "SENNA",
   },
   openGraph: {
-    title: "SENNA | 千奈 OFFICIAL WEBSITE",
+    title: "SENNA | 仙奈 OFFICIAL WEBSITE",
     description: "Official web app for artist SENNA. News, Live Tour, Discography & Merch.",
     type: "website",
     locale: "ja_JP",

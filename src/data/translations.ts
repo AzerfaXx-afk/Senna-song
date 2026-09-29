@@ -167,7 +167,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
   ja: {
     loader: {
       systemInit: "SENNA // システム起動",
-      archiveTitle: "千奈 公式アーカイブ",
+      archiveTitle: "仙奈 公式アーカイブ",
       localeDetected: "検出された言語",
       loading: "アーカイブ読込中",
       skip: "スキップ [ESC]",
@@ -176,7 +176,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       menu: "MENU",
       close: "CLOSE",
       langLabel: "言語を選択",
-      sennaHome: "千奈 ホーム",
+      sennaHome: "仙奈 ホーム",
     },
     hero: {
       badge: "オフィシャルサイト",
@@ -213,7 +213,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       readStory: "記事を読む →",
       modalClose: "閉じる ✕",
       modalShare: "シェアする",
-      officialPress: "千奈 公式プレスリリース",
+      officialPress: "仙奈 公式プレスリリース",
       linkCopied: "リンクをクリップボードにコピーしました！",
     },
     profile: {
@@ -871,7 +871,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, TranslationDictionary> = {
       subtitle: "ÜBER SENNA",
       role: "SÄNGERIN & KOMPONISTIN // TOKIO",
       quote: "„In der absoluten Finsternis ist eine einzelne Note heller als jede Sonne.“",
-      bioParagraph1: "Geboren in Tokio, vereint SENNA (千奈) traditionelle japanische Klangästhetik mit modernstem Dark-Pop, wuchtigen Basslines und cineastischem Orchester.",
+      bioParagraph1: "Geboren in Tokio, vereint SENNA (仙奈) traditionelle japanische Klangästhetik mit modernstem Dark-Pop, wuchtigen Basslines und cineastischem Orchester.",
       bioParagraph2: "Ihr Album 'ECLIPSE' eroberte Platz 1 der globalen Charts und faszinierte ein internationales Millionenpublikum.",
       bioParagraph3: "Mit ihrer unverwechselbaren Stimme und spektakulären audiovisuellen Bühnenshows setzt SENNA weltweit neue Maßstäbe.",
       milestonesTitle: "MEILENSTEINE & ZAHLEN",
